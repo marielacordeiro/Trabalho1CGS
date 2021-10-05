@@ -1,3 +1,4 @@
+package ControleAquisicoes;
 public class Aplicacao
 {
     public void inicializa()

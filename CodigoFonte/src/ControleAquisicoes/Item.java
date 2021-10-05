@@ -1,3 +1,4 @@
+package ControleAquisicoes;
 public class Item
 {
     private int idItem;

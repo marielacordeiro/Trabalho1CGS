@@ -1,3 +1,4 @@
+package ControleAquisicoes;
 public class Departamento
 {
     public String nome;
