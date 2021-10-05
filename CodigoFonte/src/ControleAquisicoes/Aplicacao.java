@@ -4,7 +4,6 @@ public class Aplicacao
     public void inicializa()
     {
         //inicializa os funcionarios no departamento
-
     }
 
     public void menu()

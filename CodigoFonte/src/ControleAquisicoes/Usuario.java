@@ -1,15 +1,15 @@
 package ControleAquisicoes;
 public class Usuario
 {
-    protected String id;
+    protected int id;
     protected String nome;
 
-    public Usuario(String id, String nome) {
+    public Usuario(int id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
