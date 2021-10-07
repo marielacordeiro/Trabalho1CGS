@@ -31,4 +31,9 @@ public class Item
     {
         return this.quantidade;
     }
+
+    public double getValorTotal()
+    {
+        return this.valor * this.quantidade;
+    }
 }
