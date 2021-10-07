@@ -26,4 +26,9 @@ public class Item
     {
         return this.valor;
     }
+
+    public int getQuantidade()
+    {
+        return this.quantidade;
+    }
 }
