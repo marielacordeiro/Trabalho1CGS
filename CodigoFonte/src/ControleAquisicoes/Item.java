@@ -33,4 +33,10 @@ public class Item
     {
         return this.quantidade;
     }
+
+    @Override
+    public String toString() {
+        return "Item " + this.idItem + " [ Descrição: " + this.descricao + ", Valor unitário: R$ " + this.valor + 
+        ", Quantidade: " + this.quantidade + ", Valor total: R$ " + this.valor*this.quantidade + " ]";
+    }
 }
