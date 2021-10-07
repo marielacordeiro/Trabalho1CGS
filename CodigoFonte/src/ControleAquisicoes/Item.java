@@ -13,4 +13,24 @@ public class Item
         this.valor = valor;
         this.quantidade = quantidade;
     }
+
+    public int getId()
+    {
+        return this.idItem;
+    }
+
+    public String getDescricao()
+    {
+        return this.descricao;
+    }
+
+    public double getValor()
+    {
+        return this.valor;
+    }
+
+    public int getQuantidade()
+    {
+        return this.quantidade;
+    }
 }
