@@ -34,6 +34,11 @@ public class Item
         return this.quantidade;
     }
 
+    public void setQuantidade(int quantidade)
+    {
+        this.quantidade = quantidade;
+    }
+
     @Override
     public String toString() {
         return "Item " + this.idItem + " [ Descrição: " + this.descricao + ", Valor unitário: R$ " + this.valor + 
