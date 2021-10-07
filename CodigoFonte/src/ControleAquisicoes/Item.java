@@ -16,4 +16,9 @@ public class Item
     {
         return this.idItem;
     }
+    
+    public String getDescricao()
+    {
+        return this.descricao;
+    }
 }
