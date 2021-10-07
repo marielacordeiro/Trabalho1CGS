@@ -56,4 +56,21 @@ public class Pedido
         }
         return valor;
     }
+
+    public void setStatus(String status)
+    {
+        if(status.equals("ABERTO") || status.equals("APROVADO") || status.equals("REPROVADO")){
+            this.status = status;
+        }
+    }
+
+    public void setDataConclusao(String dataConclusao)
+    {
+        this.dataConclusao = dataConclusao;
+    }
+
+    public void addItem(Item item)
+    {
+        itens.add(item);
+    }
 }
