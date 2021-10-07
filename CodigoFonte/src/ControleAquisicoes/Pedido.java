@@ -3,16 +3,18 @@ import java.util.ArrayList;
 
 public class Pedido
 {
-    private ArrayList<Item> listaItem;
-    private String dataInic;
-    private String dataConcl;
+    private ArrayList<Item> itens;
+    private Funcionario funcSolicitante;
+    private Departamento departSolicitante;
+    private String dataPedido;
+    private String dataConclusao;
     private String status;
-    private double valorTotal;
 
-    public Pedido()
-    {
-        listaItem = new ArrayList<>();
-        status = "NAO DEFINIDO";
-
+    public Pedido(Funcionario funcSolicitante, String dataPedido) {
+        this.itens = new ArrayList<>();
+        this.funcSolicitante = funcSolicitante;
+        this.dataPedido = dataPedido;
+        this.status = "ABERTO";
+        this.departSolicitante = funcSolicitante.getDepartamento();
     }
 }
