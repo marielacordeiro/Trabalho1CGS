@@ -17,4 +17,60 @@ public class Pedido
         this.status = "ABERTO";
         this.departSolicitante = funcSolicitante.getDepartamento();
     }
+
+    public ArrayList<Item> getItens()
+    {
+        return this.itens;
+    }
+
+    public String getDataPedido()
+    {
+        return this.DataPedidoc;
+    }
+
+    public String getDataConclusao()
+    {
+        return this.dataConclusao;
+    }
+
+    public String getStatus()
+    {
+        return this.status;
+    }
+
+    public Funcionario getFuncSolicitante()
+    {
+        return this.funcSolicitante;
+    }
+
+    public Departamento getDepartSolicitante()
+    {
+        return this.departSolicitante;
+    }
+
+    public double getValorTotal()
+    {
+        double valor = 0;
+        for(Item item : itens) {
+            valor += Item.getValorTotal();
+        }
+        return valor;
+    }
+
+    public void setStatus(String status)
+    {
+        if(status.equals("ABERTO") || status.equals("APROVADO") || status.equals("REPROVADO")){
+            this.status = status;
+        }
+    }
+
+    public void setDataConclusao(String dataConclusao)
+    {
+        this.dataConclusao = dataConclusao;
+    }
+
+    public void addItem(Item item)
+    {
+        itens.add(item);
+    }
 }
