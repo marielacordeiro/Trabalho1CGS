@@ -11,7 +11,7 @@ public class Pedido
     private String status;
 
     public Pedido(Funcionario funcSolicitante, String dataPedido) {
-        this.itens = new ArrayList<>();
+        this.itens = new ArrayList<Item>();
         this.funcSolicitante = funcSolicitante;
         this.dataPedido = dataPedido;
         this.status = "ABERTO";
@@ -69,8 +69,23 @@ public class Pedido
         this.dataConclusao = dataConclusao;
     }
 
-    public void addItem(Item item)
-    {
-        itens.add(item);
+    public boolean addItem(Item item) {
+        double valorPedido = this.getValorTotal();
+        double valorMaxPedido = this.departSolicitante.getValorMaximoPedido();
+
+        if (this.status.equals("ABERTO"))
+            if (valorPedido + item.getValorTotal() <= valorMaxPedido)
+                return itens.add(item);
+        return false;
     }
+
+    public Item removeItem(int idItem) {
+        int i = 0;
+        for (Item item : this.itens) {
+            if (item.getId() == idItem)
+                return this.itens.remove(i);
+        }
+        return null;
+    }
+
 }
