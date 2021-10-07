@@ -25,7 +25,7 @@ public class Pedido
 
     public String getDataPedido()
     {
-        return this.DataPedidoc;
+        return this.dataPedido;
     }
 
     public String getDataConclusao()
@@ -52,7 +52,7 @@ public class Pedido
     {
         double valor = 0;
         for(Item item : itens) {
-            valor += Item.getValorTotal();
+            valor += item.getValorTotal();
         }
         return valor;
     }
