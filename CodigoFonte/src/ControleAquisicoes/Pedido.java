@@ -17,4 +17,33 @@ public class Pedido
         this.status = "ABERTO";
         this.departSolicitante = funcSolicitante.getDepartamento();
     }
+
+    public ArrayList<Item> getItens()
+    {
+        return this.itens;
+    }
+
+    public String getDataPedido()
+    {
+        return this.DataPedidoc;
+    }
+
+    public String getDataConclusao()
+    {
+        return this.dataConclusao;
+    }
+
+    public String getStatus()
+    {
+        return this.status;
+    }
+
+    public double getValorTotal()
+    {
+        double valor = 0;
+        for(Item item : itens) {
+            valor += Item.getValorTotal();
+        }
+        return valor;
+    }
 }
