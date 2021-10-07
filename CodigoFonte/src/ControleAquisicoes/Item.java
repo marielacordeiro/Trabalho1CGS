@@ -36,7 +36,9 @@ public class Item
 
     public void setQuantidade(int quantidade)
     {
-        this.quantidade = quantidade;
+        if(quantidade >= 0) {
+            this.quantidade = quantidade;
+        }
     }
 
     public double getValorTotal()
