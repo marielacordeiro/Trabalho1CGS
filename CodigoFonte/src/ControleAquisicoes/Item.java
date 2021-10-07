@@ -11,4 +11,9 @@ public class Item
         this.descricao = descricao;
         this.valor = valor;
     }
+
+    public int getId()
+    {
+        return this.idItem;
+    }
 }
