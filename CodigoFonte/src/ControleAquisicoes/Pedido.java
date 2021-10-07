@@ -38,6 +38,16 @@ public class Pedido
         return this.status;
     }
 
+    public Funcionario getFuncSolicitante()
+    {
+        return this.funcSolicitante;
+    }
+
+    public Departamento getDepartSolicitante()
+    {
+        return this.departSolicitante;
+    }
+
     public double getValorTotal()
     {
         double valor = 0;
