@@ -11,4 +11,10 @@ public class Item
         this.descricao = descricao;
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return "Item " + this.idItem + " [ Descrição: " + this.descricao + ", Valor unitário: R$ " + this.valor + 
+        ", Quantidade: " + this.quantidade + ", Valor total: R$ " + this.valor*this.quantidade + " ]";
+    }
 }
