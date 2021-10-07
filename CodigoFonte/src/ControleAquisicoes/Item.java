@@ -39,6 +39,11 @@ public class Item
         this.quantidade = quantidade;
     }
 
+    public double getValorTotal()
+    {
+        return this.valor * this.quantidade;
+    }
+
     @Override
     public String toString() {
         return "Item " + this.idItem + " [ Descrição: " + this.descricao + ", Valor unitário: R$ " + this.valor + 
