@@ -1,6 +1,9 @@
 package ControleAquisicoes;
-
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class Historico
 {
@@ -18,7 +21,7 @@ public class Historico
     // public String listarPedidosEntreDuasDatas(){}
     // public Usuario buscarPedidosFuncionario(){}
     // public Pedido buscarPelaDescricao(){}
-    // public String visualizarPedido(){}
+
 
     public String totalPedidos() {
         if (listaPedidos.size() == 0)
@@ -45,7 +48,11 @@ public class Historico
                "%) || Reprovados: " + totalReprovados + " (" + percentualReprovados + "%)";
     }
 
-    // public String pedidosUltimos30Dias(){}
+        public List<Pedido> pedidosUltimos30Dias(){
+            LocalDate data30DiasAtras = LocalDate.now().minusDays(30);
+            List<Pedido> pedidosDe30DiasAtras =  listaPedidos.stream() .filter(p->p.getDataPedido().isBefore(data30DiasAtras)).collect(Collectors.toList());
+            return pedidosDe30DiasAtras;
+        }
     // public double valorTotalCategoria(){}
     // public String detalhePedidoMaiorAquisicao(){}
 
