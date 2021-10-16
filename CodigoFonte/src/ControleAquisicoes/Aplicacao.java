@@ -1,7 +1,9 @@
 package ControleAquisicoes;
 
 public class Aplicacao {
-    public void inicializa() {
+
+    public void inicializa()
+    {
         // inicializa os funcionarios no departamento
         Departamento d1 = new Departamento("Financeiro", 1000000);
         Departamento d2 = new Departamento("RH", 100000);
@@ -26,9 +28,42 @@ public class Aplicacao {
         Funcionario f16 = new Funcionario(16, "Sergio", d5);
     }
 
-    public void menu() {
+    public void menu()
+    {
         // Menu de selecao de usuario
+         escolhaUsuario();
         // menu de funcionario
         // menu de administrador
+    }
+
+    private void escolhaUsuario()
+    {
+        System.out.println("Escolha entre Funcionário ou Administrador: ");
+        System.out.println("[1] - Administrador");
+        System.out.println("[2] - Funcionário");
+
+    }
+
+    private int leInteiro()
+    {
+        boolean ok = false;
+        int numero = -1;
+        while(!ok)
+        {
+            try
+            {
+                numero = in.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Entrada invalida. Digite um numero inteiro");
+            }
+            finally
+            {
+                String aux = in.nextLine();
+            }
+        }
+        return numero;
     }
 }
