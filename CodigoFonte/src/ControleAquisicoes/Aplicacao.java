@@ -23,15 +23,11 @@ public class Aplicacao {
         Funcionario f13 = new Funcionario(13, "Jasmin", d3);
         Funcionario f14 = new Funcionario(14, "Luiza", d2);
         Funcionario f15 = new Funcionario(15, "Alice", d1);
-        // o sistema deverá iniciar com dados já
-        // cadastrados de pelo menos 15 funcionários, associados aos seus
-        // departamentos.]
-
+        Funcionario f16 = new Funcionario(16, "Sergio", d5);
     }
 
     public void menu() {
         // Menu de selecao de usuario
-
         // menu de funcionario
         // menu de administrador
     }
