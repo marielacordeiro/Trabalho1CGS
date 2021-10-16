@@ -16,7 +16,7 @@ public class Funcionario extends Usuario
         return super.getNome();
     }
 
-    public String getDepartamento() {
-        return this.departamento.getNome();
+    public Departamento getDepartamento() {
+        return this.departamento;
     }
 }
