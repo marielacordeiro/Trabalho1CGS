@@ -1,7 +1,14 @@
 package ControleAquisicoes;
 
-public class Aplicacao {
+import java.util.Scanner;
 
+public class Aplicacao
+{
+    private Scanner in;
+    public Aplicacao()
+    {
+        in = new Scanner(System.in);
+    }
     public void inicializa()
     {
         // inicializa os funcionarios no departamento
