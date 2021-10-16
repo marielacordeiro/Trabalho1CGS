@@ -18,10 +18,22 @@ public class Historico
             listaPedidos.add(pedido);
     }
 
-    // public String listarPedidosEntreDuasDatas(){}
-    // public Usuario buscarPedidosFuncionario(){}
-    // public Pedido buscarPelaDescricao(){}
+    public List<Pedido> pedidosEntreDuasDatas(LocalDate dataInicial, LocalDate dataFinal){
+        List<Pedido> pedidosEntreDatas = listaPedidos.stream().filter(p -> p.getDataPedido().isAfter(dataInicial) && p.getDataPedido().isBefore(dataFinal)).collect(Collectors.toList());
+        return pedidosEntreDatas;
+    }
 
+    public List<Pedido> buscarPedidosFuncionario(Funcionario funcionario) {
+        List<Pedido> pedidosFuncionario = listaPedidos.stream().filter(p -> p.getFuncSolicitante() == funcionario).collect(Collectors.toList());
+        return pedidosFuncionario;
+    }
+
+    public List<Pedido> buscarPedidosDescricaoItem(String descricao) {
+        List<Pedido> pedidosDescricaoItem = listaPedidos.stream().filter(p -> p.getItens()
+                                                        .stream().filter(i -> i.getDescricao()
+                                                        .equals(descricao)).count() > 0).collect(Collectors.toList());
+        return pedidosDescricaoItem;
+    }
 
     public String totalPedidos() {
         if (listaPedidos.size() == 0)
@@ -48,11 +60,12 @@ public class Historico
                "%) || Reprovados: " + totalReprovados + " (" + percentualReprovados + "%)";
     }
 
-        public List<Pedido> pedidosUltimos30Dias(){
-            LocalDate data30DiasAtras = LocalDate.now().minusDays(30);
-            List<Pedido> pedidosDe30DiasAtras =  listaPedidos.stream() .filter(p->p.getDataPedido().isBefore(data30DiasAtras)).collect(Collectors.toList());
-            return pedidosDe30DiasAtras;
-        }
+    public List<Pedido> pedidosUltimos30Dias(){
+        LocalDate data30DiasAtras = LocalDate.now().minusDays(30);
+        List<Pedido> pedidosDe30DiasAtras =  listaPedidos.stream().filter(p -> p.getDataPedido().isAfter(data30DiasAtras)).collect(Collectors.toList());
+        return pedidosDe30DiasAtras;
+    }
+
     // public double valorTotalCategoria(){}
     // public String detalhePedidoMaiorAquisicao(){}
 
