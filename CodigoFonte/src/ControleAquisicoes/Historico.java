@@ -1,6 +1,7 @@
 package ControleAquisicoes;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -66,7 +67,12 @@ public class Historico
         return pedidosDe30DiasAtras;
     }
 
-    // public double valorTotalCategoria(){}
-    // public String detalhePedidoMaiorAquisicao(){}
+    public List<Pedido> valorTotalCategoria(){
+        LocalDate dataDe30DiasAtras = LocalDate.now().minusDays(30);
+        Collection<Pedido> listaPedidosEmAberto;
+        List<Pedido> pedidosEmAberto = listaPedidosEmAberto.stream().filter(p -> p.getStatus().isBefore(dataDe30DiasAtras)).collect(Collectors.toList());
+        return pedidosEmAberto;
+    }
+     // public String detalhePedidoMaiorAquisicao(){}
 
 }
