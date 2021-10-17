@@ -70,7 +70,7 @@ public class Historico
     public List<Pedido> valorTotalCategoria(){
         LocalDate dataDe30DiasAtras = LocalDate.now().minusDays(30);
         Collection<Pedido> listaPedidosEmAberto;
-        List<Pedido> pedidosEmAberto = listaPedidosEmAberto.stream().filter(p -> p.getStatus().isBefore(dataDe30DiasAtras)).collect(Collectors.toList());
+        List<Pedido> pedidosEmAberto = listaPedidosEmAberto.stream().filter(p -> p.getStatus().isAfter(dataDe30DiasAtras)).collect(Collectors.toList());
         return pedidosEmAberto;
     }
      // public String detalhePedidoMaiorAquisicao(){}
