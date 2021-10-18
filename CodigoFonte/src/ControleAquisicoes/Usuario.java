@@ -23,4 +23,9 @@ public class Usuario
     public String getNome() {
         return nome;
     }
+
+    public Departamento getDepartamento() {
+        return null;
+        // TODO: refatorar o codigo para que Usuarios tenham um departamento como atributo ou verificar como fazer caso decida-se manter o formato atual
+    }
 }

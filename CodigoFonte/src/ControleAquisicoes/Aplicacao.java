@@ -8,22 +8,22 @@ public class Aplicacao {
         Departamento d3 = new Departamento("Engenharia", 500000);
         Departamento d4 = new Departamento("Administracao", 2000000);
         Departamento d5 = new Departamento("Marketing", 600000);
-        Funcionario f1 = new Funcionario(1, "Paula", d1);
-        Funcionario f2 = new Funcionario(2, "Alfredo", d2);
-        Funcionario f3 = new Funcionario(3, "Amanda", d3);
-        Funcionario f4 = new Funcionario(4, "Francisco", d4);
-        Funcionario f5 = new Funcionario(5, "Lucas", d5);
-        Funcionario f6 = new Funcionario(6, "Coraline", d1);
-        Funcionario f7 = new Funcionario(7, "Augusta", d2);
-        Funcionario f8 = new Funcionario(8, "Catarina", d3);
-        Funcionario f9 = new Funcionario(9, "Cláudio", d4);
-        Funcionario f10 = new Funcionario(10, "Mauro Lúcio", d5);
-        Funcionario f11 = new Funcionario(11, "Adalberto", d5);
-        Funcionario f12 = new Funcionario(12, "Henrique", d4);
-        Funcionario f13 = new Funcionario(13, "Jasmin", d3);
-        Funcionario f14 = new Funcionario(14, "Luiza", d2);
-        Funcionario f15 = new Funcionario(15, "Alice", d1);
-        Funcionario f16 = new Funcionario(16, "Sergio", d5);
+        Usuario f1 = new Usuario("Paula", true);
+        Usuario f2 = new Usuario("Alfredo", true);
+        Usuario f3 = new Usuario("Amanda", true);
+        Usuario f4 = new Usuario("Francisco", true);
+        Usuario f5 = new Usuario("Lucas", false);
+        Usuario f6 = new Usuario("Coraline", false);
+        Usuario f7 = new Usuario("Augusta", false);
+        Usuario f8 = new Usuario("Catarina", false);
+        Usuario f9 = new Usuario("Cláudio", false);
+        Usuario f10 = new Usuario("Mauro Lúcio", false);
+        Usuario f11 = new Usuario("Adalberto", false);
+        Usuario f12 = new Usuario("Henrique", false);
+        Usuario f13 = new Usuario("Jasmin", false);
+        Usuario f14 = new Usuario("Luiza", false);
+        Usuario f15 = new Usuario("Alice", false);
+        Usuario f16 = new Usuario("Sergio", false);
     }
 
     public void menu() {

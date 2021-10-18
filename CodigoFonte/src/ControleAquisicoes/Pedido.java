@@ -4,13 +4,13 @@ import java.util.ArrayList;
 public class Pedido
 {
     private ArrayList<Item> itens;
-    private Funcionario funcSolicitante;
+    private Usuario funcSolicitante;
     private Departamento departSolicitante;
     private String dataPedido;
     private String dataConclusao;
     private String status;
 
-    public Pedido(Funcionario funcSolicitante, String dataPedido) {
+    public Pedido(Usuario funcSolicitante, String dataPedido) {
         this.itens = new ArrayList<Item>();
         this.funcSolicitante = funcSolicitante;
         this.dataPedido = dataPedido;
@@ -38,7 +38,7 @@ public class Pedido
         return this.status;
     }
 
-    public Funcionario getFuncSolicitante()
+    public Usuario getFuncSolicitante()
     {
         return this.funcSolicitante;
     }
