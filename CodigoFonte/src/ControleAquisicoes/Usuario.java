@@ -1,12 +1,13 @@
 package ControleAquisicoes;
 public class Usuario
 {
+    private static int nextId = 0;
     protected int id;
     protected String nome;
     protected boolean isAdmin;
 
-    public Usuario(int id, String nome, boolean isAdmin) {
-        this.id = id;
+    public Usuario(String nome, boolean isAdmin) {
+        this.id = nextId++;
         this.nome = nome;
         this.isAdmin = isAdmin;
     }
