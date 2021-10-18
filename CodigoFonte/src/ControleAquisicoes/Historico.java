@@ -18,7 +18,13 @@ public class Historico
     // public String listarPedidosEntreDuasDatas(){}
     // public Usuario buscarPedidosFuncionario(){}
     // public Pedido buscarPelaDescricao(){}
-    // public String visualizarPedido(){}
+
+    public String visualizarPedido(){
+        if (listaPedidos.size() == 0)
+            return "Nenhum pedido registrado neste histórico.";
+
+        return "algo";
+    }
 
     public String totalPedidos() {
         if (listaPedidos.size() == 0)

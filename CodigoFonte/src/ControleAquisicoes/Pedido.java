@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Pedido
 {
+    protected static int count = 1;
+    private int idPedido;
     private ArrayList<Item> itens;
     private Usuario funcSolicitante;
     private Departamento departSolicitante;
@@ -11,12 +13,18 @@ public class Pedido
     private String status;
 
     public Pedido(Usuario funcSolicitante, String dataPedido) {
+        this.idPedido = count;
         this.itens = new ArrayList<Item>();
         this.funcSolicitante = funcSolicitante;
         this.dataPedido = dataPedido;
         this.status = "ABERTO";
         this.departSolicitante = funcSolicitante.getDepartamento();
+        count++;
     }
+
+    public int getIdPedido() {return idPedido;}
+
+    public void setIdPedido(int idPedido) {this.idPedido = idPedido;}
 
     public ArrayList<Item> getItens()
     {
