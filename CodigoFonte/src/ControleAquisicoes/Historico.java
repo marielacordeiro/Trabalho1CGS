@@ -19,11 +19,22 @@ public class Historico
     // public Usuario buscarPedidosFuncionario(){}
     // public Pedido buscarPelaDescricao(){}
 
-    public String visualizarPedido(){
+    public String visualizarPedido(int identificador){
         if (listaPedidos.size() == 0)
             return "Nenhum pedido registrado neste histórico.";
 
-        return "algo";
+        Pedido pedidoBuscado = null;
+        for (Pedido p: listaPedidos) {
+            if(p.getIdPedido() == identificador){
+                pedidoBuscado = p;
+            }
+        }
+
+        if(pedidoBuscado == null){
+            return "Nenhum pedido com esse id";
+        }
+
+        return pedidoBuscado.toString();
     }
 
     public String totalPedidos() {

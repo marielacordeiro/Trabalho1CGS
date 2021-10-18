@@ -96,4 +96,18 @@ public class Pedido
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "idPedido=" + idPedido +
+                ", itens=" + itens +
+                ", funcSolicitante=" + funcSolicitante +
+                ", departSolicitante=" + departSolicitante +
+                ", dataPedido='" + dataPedido + '\'' +
+                ", dataConclusao='" + dataConclusao + '\'' +
+                ", valorTotal='" + this.getValorTotal() + '\'' +
+                ", status='" + status + '\'' +
+                '}';
+    }
+
 }
