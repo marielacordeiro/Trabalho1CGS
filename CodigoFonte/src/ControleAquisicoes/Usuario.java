@@ -1,6 +1,6 @@
 package ControleAquisicoes;
-public class Usuario
-{
+
+public class Usuario {
     private static int nextId = 0;
     protected int id;
     protected String nome;
@@ -26,6 +26,12 @@ public class Usuario
 
     public Departamento getDepartamento() {
         return null;
-        // TODO: refatorar o codigo para que Usuarios tenham um departamento como atributo ou verificar como fazer caso decida-se manter o formato atual
+        // TODO: refatorar o codigo para que Usuarios tenham um departamento como
+        // atributo ou verificar como fazer caso decida-se manter o formato atual
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + ", Identificador: " + id;
     }
 }

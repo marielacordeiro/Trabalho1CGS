@@ -1,8 +1,8 @@
 package ControleAquisicoes;
+
 import java.util.ArrayList;
 
-public class Pedido
-{
+public class Pedido {
     protected static int count = 1;
     private int idPedido;
     private ArrayList<Item> itens;
@@ -22,58 +22,53 @@ public class Pedido
         count++;
     }
 
-    public int getIdPedido() {return idPedido;}
+    public int getIdPedido() {
+        return idPedido;
+    }
 
-    public void setIdPedido(int idPedido) {this.idPedido = idPedido;}
+    public void setIdPedido(int idPedido) {
+        this.idPedido = idPedido;
+    }
 
-    public ArrayList<Item> getItens()
-    {
+    public ArrayList<Item> getItens() {
         return this.itens;
     }
 
-    public String getDataPedido()
-    {
+    public String getDataPedido() {
         return this.dataPedido;
     }
 
-    public String getDataConclusao()
-    {
+    public String getDataConclusao() {
         return this.dataConclusao;
     }
 
-    public String getStatus()
-    {
+    public String getStatus() {
         return this.status;
     }
 
-    public Usuario getFuncSolicitante()
-    {
+    public Usuario getFuncSolicitante() {
         return this.funcSolicitante;
     }
 
-    public Departamento getDepartSolicitante()
-    {
+    public Departamento getDepartSolicitante() {
         return this.departSolicitante;
     }
 
-    public double getValorTotal()
-    {
+    public double getValorTotal() {
         double valor = 0;
-        for(Item item : itens) {
+        for (Item item : itens) {
             valor += item.getValorTotal();
         }
         return valor;
     }
 
-    public void setStatus(String status)
-    {
-        if(status.equals("ABERTO") || status.equals("APROVADO") || status.equals("REPROVADO")){
+    public void setStatus(String status) {
+        if (status.equals("ABERTO") || status.equals("APROVADO") || status.equals("REPROVADO")) {
             this.status = status;
         }
     }
 
-    public void setDataConclusao(String dataConclusao)
-    {
+    public void setDataConclusao(String dataConclusao) {
         this.dataConclusao = dataConclusao;
     }
 
@@ -88,26 +83,22 @@ public class Pedido
     }
 
     public Item removeItem(int idItem) {
-        int i = 0;
         for (Item item : this.itens) {
-            if (item.getId() == idItem)
-                return this.itens.remove(i);
+            if (item.getId() == idItem) {
+                Item removido = item;
+                this.itens.remove(item);
+                return removido;
+            }
         }
         return null;
     }
 
     @Override
     public String toString() {
-        return "Pedido{" +
-                "idPedido=" + idPedido +
-                ", itens=" + itens +
-                ", funcSolicitante=" + funcSolicitante +
-                ", departSolicitante=" + departSolicitante +
-                ", dataPedido='" + dataPedido + '\'' +
-                ", dataConclusao='" + dataConclusao + '\'' +
-                ", valorTotal='" + this.getValorTotal() + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+        return "Pedido{" + "idPedido=" + idPedido + ", itens=" + itens + ", funcSolicitante=" + funcSolicitante
+                + ", departSolicitante=" + departSolicitante + ", dataPedido='" + dataPedido + '\''
+                + ", dataConclusao='" + dataConclusao + '\'' + ", valorTotal='" + this.getValorTotal() + '\''
+                + ", status='" + status + '\'' + '}';
     }
 
 }
