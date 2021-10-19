@@ -1,4 +1,5 @@
 package ControleAquisicoes;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Pedido
@@ -8,11 +9,11 @@ public class Pedido
     private ArrayList<Item> itens;
     private Usuario funcSolicitante;
     private Departamento departSolicitante;
-    private String dataPedido;
-    private String dataConclusao;
+    private LocalDate dataPedido;
+    private LocalDate dataConclusao;
     private String status;
 
-    public Pedido(Usuario funcSolicitante, String dataPedido) {
+    public Pedido(Usuario funcSolicitante, LocalDate dataPedido) {
         this.idPedido = count;
         this.itens = new ArrayList<Item>();
         this.funcSolicitante = funcSolicitante;
@@ -31,12 +32,12 @@ public class Pedido
         return this.itens;
     }
 
-    public String getDataPedido()
+    public LocalDate getDataPedido()
     {
         return this.dataPedido;
     }
 
-    public String getDataConclusao()
+    public LocalDate getDataConclusao()
     {
         return this.dataConclusao;
     }
@@ -72,7 +73,7 @@ public class Pedido
         }
     }
 
-    public void setDataConclusao(String dataConclusao)
+    public void setDataConclusao(LocalDate dataConclusao)
     {
         this.dataConclusao = dataConclusao;
     }
