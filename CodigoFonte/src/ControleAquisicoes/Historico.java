@@ -76,6 +76,7 @@ public class Historico
 
     public String detalhePedidoMaiorAquisicao(){
         double pedidoMaiorValor = 0;
+        Pedido pedido;
         if (listaPedidos.size() == 0)
             return "Nenhum pedido registrado neste histórico.";
 
@@ -83,9 +84,10 @@ public class Historico
            if (!p.getStatus().equals("APROVADO") && !p.getStatus().equals("REPROVADO")) {
                 if (p.getValorTotal() > pedidoMaiorValor) {
                     pedidoMaiorValor = p.getValorTotal();
+                    pedido = p;
                 }
            }
         }
-        return null;
+        return pedido.toString();
     }
 }
