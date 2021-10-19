@@ -1,7 +1,12 @@
 package ControleAquisicoes;
 
-public class Aplicacao {
-    public void inicializa() {
+import java.util.Scanner;
+
+public class Aplicacao
+{
+    private Scanner in = new Scanner(System.in);
+    public void inicializa()
+    {
         // inicializa os funcionarios no departamento
         Departamento d1 = new Departamento("Financeiro", 1000000);
         Departamento d2 = new Departamento("RH", 100000);
@@ -26,9 +31,11 @@ public class Aplicacao {
         Usuario f16 = new Usuario("Sergio", false);
     }
 
-    public void menu() {
-        // Menu de selecao de usuario
-        // menu de funcionario
-        // menu de administrador
+    public void mostraMenuFuncionario()
+    {
+        System.out.println("[0] - Encerrar menu");
+        System.out.println("[1] - Solicitar Pedido");
+        System.out.println("[x] - Trocar de Usuario");
     }
+
 }
