@@ -116,5 +116,27 @@ public class Aplicacao
         System.out.println("[2] - Funcionário");
     }
 
+    private int leInteiro()
+    {
+        boolean ok = false;
+        int numero = -1;
+        while(!ok)
+        {
+            try
+            {
+                numero = in.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Entrada invalida. Digite um numero inteiro");
+            }
+            finally
+            {
+                String aux = in.nextLine();
+            }
+        }
+        return numero;
+    }
 
 }
