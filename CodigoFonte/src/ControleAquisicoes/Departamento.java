@@ -7,16 +7,16 @@ public class Departamento
 {
     private String nome;
     private double valorMaximoPedido;
-    private ArrayList<Funcionario> funcionarios;
+    private ArrayList<Usuario> funcionarios;
 
     
     public Departamento(String nome, double valorMaximoPedido) {
         this.nome = nome;
         this.valorMaximoPedido = valorMaximoPedido;
-        this.funcionarios = new ArrayList<Funcionario>();
+        this.funcionarios = new ArrayList<Usuario>();
     }
 
-    public void addFuncionario(Funcionario funcionario) throws IllegalArgumentException{
+    public void addFuncionario(Usuario funcionario) throws IllegalArgumentException{
 
         //Valida se não estamos adicionando o mesmo funcionário novamente
         if(funcionarios.contains(funcionario)){

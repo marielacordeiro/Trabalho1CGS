@@ -4,20 +4,28 @@ import java.util.ArrayList;
 
 public class Pedido
 {
+    protected static int count = 1;
+    private int idPedido;
     private ArrayList<Item> itens;
-    private Funcionario funcSolicitante;
+    private Usuario funcSolicitante;
     private Departamento departSolicitante;
     private LocalDate dataPedido;
     private LocalDate dataConclusao;
     private String status;
 
-    public Pedido(Funcionario funcSolicitante, LocalDate dataPedido) {
+    public Pedido(Usuario funcSolicitante, LocalDate dataPedido) {
+        this.idPedido = count;
         this.itens = new ArrayList<Item>();
         this.funcSolicitante = funcSolicitante;
         this.dataPedido = dataPedido;
         this.status = "ABERTO";
         this.departSolicitante = funcSolicitante.getDepartamento();
+        count++;
     }
+
+    public int getIdPedido() {return idPedido;}
+
+    public void setIdPedido(int idPedido) {this.idPedido = idPedido;}
 
     public ArrayList<Item> getItens()
     {
@@ -39,7 +47,7 @@ public class Pedido
         return this.status;
     }
 
-    public Funcionario getFuncSolicitante()
+    public Usuario getFuncSolicitante()
     {
         return this.funcSolicitante;
     }
@@ -87,6 +95,20 @@ public class Pedido
                 return this.itens.remove(i);
         }
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "idPedido=" + idPedido +
+                ", itens=" + itens +
+                ", funcSolicitante=" + funcSolicitante +
+                ", departSolicitante=" + departSolicitante +
+                ", dataPedido='" + dataPedido + '\'' +
+                ", dataConclusao='" + dataConclusao + '\'' +
+                ", valorTotal='" + this.getValorTotal() + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 
 }
