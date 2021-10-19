@@ -1,54 +1,47 @@
 package ControleAquisicoes;
-public class Item
-{
-    private int idItem;
+
+public class Item {
+    private int idItem = 0;
     private String descricao;
     private double valor;
     private int quantidade;
 
-    public Item(int idItem, String descricao, double valor, int quantidade)
-    {
-        this.idItem = idItem;
+    public Item(String descricao, double valor, int quantidade) {
+        idItem++;
         this.descricao = descricao;
         this.valor = valor;
         this.quantidade = quantidade;
     }
 
-    public int getId()
-    {
+    public int getId() {
         return this.idItem;
     }
 
-    public String getDescricao()
-    {
+    public String getDescricao() {
         return this.descricao;
     }
 
-    public double getValor()
-    {
+    public double getValor() {
         return this.valor;
     }
 
-    public int getQuantidade()
-    {
+    public int getQuantidade() {
         return this.quantidade;
     }
 
-    public void setQuantidade(int quantidade)
-    {
-        if(quantidade >= 0) {
+    public void setQuantidade(int quantidade) {
+        if (quantidade >= 0) {
             this.quantidade = quantidade;
         }
     }
 
-    public double getValorTotal()
-    {
+    public double getValorTotal() {
         return this.valor * this.quantidade;
     }
 
     @Override
     public String toString() {
-        return "Item " + this.idItem + " [ Descrição: " + this.descricao + ", Valor unitário: R$ " + this.valor + 
-        ", Quantidade: " + this.quantidade + ", Valor total: R$ " + this.valor*this.quantidade + " ]";
+        return "Item " + this.idItem + " [ Descrição: " + this.descricao + ", Valor unitário: R$ " + this.valor
+                + ", Quantidade: " + this.quantidade + ", Valor total: R$ " + this.valor * this.quantidade + " ]";
     }
 }

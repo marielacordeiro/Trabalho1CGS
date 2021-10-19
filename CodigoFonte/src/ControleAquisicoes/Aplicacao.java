@@ -23,37 +23,37 @@ public class Aplicacao {
         Departamento d3 = new Departamento("Engenharia", 500000);
         Departamento d4 = new Departamento("Administracao", 2000000);
         Departamento d5 = new Departamento("Marketing", 600000);
-        Usuario u1 = new Usuario("Paula", true);
+        Usuario u1 = new Usuario("Paula", true, d1);
         listaUsuariosAdmin.add(u1);
-        Usuario u2 = new Usuario("Alfredo", true);
+        Usuario u2 = new Usuario("Alfredo", true, d2);
         listaUsuariosAdmin.add(u2);
-        Usuario u3 = new Usuario("Amanda", true);
+        Usuario u3 = new Usuario("Amanda", true, d3);
         listaUsuariosAdmin.add(u3);
-        Usuario u4 = new Usuario("Francisco", true);
+        Usuario u4 = new Usuario("Francisco", true, d4);
         listaUsuariosAdmin.add(u4);
-        Usuario u5 = new Usuario("Lucas", false);
+        Usuario u5 = new Usuario("Lucas", false, d5);
         listaUsuarios.add(u5);
-        Usuario u6 = new Usuario("Coraline", false);
+        Usuario u6 = new Usuario("Coraline", false, d1);
         listaUsuarios.add(u6);
-        Usuario u7 = new Usuario("Augusta", false);
+        Usuario u7 = new Usuario("Augusta", false, d2);
         listaUsuarios.add(u7);
-        Usuario u8 = new Usuario("Catarina", false);
+        Usuario u8 = new Usuario("Catarina", false, d3);
         listaUsuarios.add(u8);
-        Usuario u9 = new Usuario("Cláudio", false);
+        Usuario u9 = new Usuario("Cláudio", false, d4);
         listaUsuarios.add(u9);
-        Usuario u10 = new Usuario("Mauro Lúcio", false);
+        Usuario u10 = new Usuario("Mauro Lúcio", false, d5);
         listaUsuarios.add(u10);
-        Usuario u11 = new Usuario("Adalberto", false);
+        Usuario u11 = new Usuario("Adalberto", false, d1);
         listaUsuarios.add(u11);
-        Usuario u12 = new Usuario("Henrique", false);
+        Usuario u12 = new Usuario("Henrique", false, d2);
         listaUsuarios.add(u12);
-        Usuario u13 = new Usuario("Jasmin", false);
+        Usuario u13 = new Usuario("Jasmin", false, d3);
         listaUsuarios.add(u13);
-        Usuario u14 = new Usuario("Luiza", false);
+        Usuario u14 = new Usuario("Luiza", false, d4);
         listaUsuarios.add(u14);
-        Usuario u15 = new Usuario("Alice", false);
+        Usuario u15 = new Usuario("Alice", false, d5);
         listaUsuarios.add(u15);
-        Usuario u16 = new Usuario("Sergio", false);
+        Usuario u16 = new Usuario("Sergio", false, d1);
         listaUsuarios.add(u16);
     }
 
@@ -71,7 +71,7 @@ public class Aplicacao {
             case 0:
                 break;
             case 1:
-                // realizarPedido(usuarioAtual);
+                realizarPedido(usuarioAtual);
                 break;
             case 2:
                 break;
@@ -158,29 +158,26 @@ public class Aplicacao {
                 break;
             }
         }
-
     }
 
-    // public boolean realizarPedido(Usuario usuarioAtual) {
-
-    // }s
-    // 8.
-
-    // O sistema
-    // deverá permitir
-    // a um
-    // administrador ver
-    // estatísticas gerais contendo:8.1.
-    // Número de
-    // pedidos total, divididos
-    // entre aprovados
-
-    // e reprovados (com percentuais).
-    // 8.2. Número de pedidos nos últimos 30 dias e seu valor médio.
-    // 8.3. Valor total de cada categoria nos últimos 30 dias.
-    // 8.4. Detalhes do pedido de aquisição de maior valor ainda aberto.
-
-    // public void
+    public void realizarPedido(Usuario usuarioAtual) {
+        System.out.println("Para realizar um pedido de aquisição, informe a data do pedido: ");
+        String data = in.nextLine().trim();
+        System.out.println("Informe a data de conclusão do pedido: ");
+        String dataConclusao = in.nextLine().trim();
+        System.out.println("Escolha o status do pedido entre aberto, aprovado ou reprovado: ");
+        String status = in.nextLine().trim();
+        System.out.println("Descrição do item: ");
+        String descricao = in.nextLine();
+        System.out.println("Valor unitário: ");
+        double valorUni = in.nextDouble();
+        System.out.println("Quantidade: ");
+        int quant = in.nextInt();
+        Pedido pedido = new Pedido(usuarioAtual, data);
+        Item item = new Item(descricao, valorUni, quant);
+        double valorTotal = item.getValorTotal();
+        System.out.println(valorTotal);
+    }
 
     public void mostraMenuFuncionario() {
         System.out.println("[0] - Encerrar menu");
