@@ -73,6 +73,19 @@ public class Historico
         List<Pedido> pedidosEmAberto = listaPedidosEmAberto.stream().filter(p -> p.getStatus().isAfter(dataDe30DiasAtras)).collect(Collectors.toList());
         return pedidosEmAberto;
     }
-     // public String detalhePedidoMaiorAquisicao(){}
 
+    public String detalhePedidoMaiorAquisicao(){
+        double pedidoMaiorValor = 0;
+        if (listaPedidos.size() == 0)
+            return "Nenhum pedido registrado neste histórico.";
+
+        for (Pedido p: listaPedidos) {
+           if (!p.getStatus().equals("APROVADO") && !p.getStatus().equals("REPROVADO")) {
+                if (p.getValorTotal() > pedidoMaiorValor) {
+                    pedidoMaiorValor = p.getValorTotal();
+                }
+           }
+        }
+        return null;
+    }
 }
