@@ -1,10 +1,8 @@
 package ControleAquisicoes;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 public class Historico
 {
@@ -67,18 +65,19 @@ public class Historico
         return pedidosDe30DiasAtras;
     }
 
-    public List<Pedido> valorTotalCategoria(){
-        LocalDate dataDe30DiasAtras = LocalDate.now().minusDays(30);
-        Collection<Pedido> listaPedidosEmAberto;
-        List<Pedido> pedidosEmAberto = listaPedidosEmAberto.stream().filter(p -> p.getStatus().isAfter(dataDe30DiasAtras)).collect(Collectors.toList());
-        return pedidosEmAberto;
+    public String valorTotalCategoria(){
+        List<Pedido> pedidosUltimos30Dias = this.pedidosUltimos30Dias();
+        double totalEmAberto = pedidosUltimos30Dias.stream().filter(p -> p.getStatus().equals("ABERTO")).mapToDouble(p -> p.getValorTotal()).sum();
+        double totalAprovado = pedidosUltimos30Dias.stream().filter(p -> p.getStatus().equals("APROVADO")).mapToDouble(p -> p.getValorTotal()).sum();
+        double totalReprovado = pedidosUltimos30Dias.stream().filter(p -> p.getStatus().equals("REPROVADO")).mapToDouble(p -> p.getValorTotal()).sum();
+        return "Total em aberto: R$ " + String.format("%.2f", totalEmAberto) +
+               "\nTotal aprovado: R$ " + String.format("%.2f", totalAprovado) +   
+               "\nTotal reprovado: R$ " + String.format("%.2f", totalReprovado);
     }
 
     public String detalhePedidoMaiorAquisicao(){
         double pedidoMaiorValor = 0;
-        Pedido pedido;
-        if (listaPedidos.size() == 0)
-            return "Nenhum pedido registrado neste histórico.";
+        Pedido pedido = null;
 
         for (Pedido p: listaPedidos) {
            if (!p.getStatus().equals("APROVADO") && !p.getStatus().equals("REPROVADO")) {
@@ -88,6 +87,9 @@ public class Historico
                 }
            }
         }
+
+        if (pedido == null)
+            return "Nenhum pedido registrado neste histórico.";
         return pedido.toString();
     }
 }
