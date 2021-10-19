@@ -38,4 +38,15 @@ public class Aplicacao
         System.out.println("[x] - Trocar de Usuario");
     }
 
+    public void mostraMenuAdm()
+    {
+        System.out.println("[0] - Encerrar menu");
+        System.out.println("[1] - Solicitar Pedido");
+        System.out.println("[2] - Listar todos os pedidos entre duas datas");
+        System.out.println("[3] - Buscar pedidos por funcionário solicitante");
+        System.out.println("[4] - Buscar pedidos pela descrição de um item");
+        System.out.println("[5] - Visualizar os detalhes de um pedido");
+        System.out.println("[x] - Trocar de Usuario");
+    }
+
 }
