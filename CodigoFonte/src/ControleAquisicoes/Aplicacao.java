@@ -49,4 +49,12 @@ public class Aplicacao
         System.out.println("[x] - Trocar de Usuario");
     }
 
+    private void escolhaUsuario()
+    {
+        System.out.println("Escolha entre Funcionário ou Administrador: ");
+        System.out.println("[1] - Administrador");
+        System.out.println("[2] - Funcionário");
+    }
+
+
 }
