@@ -1,7 +1,16 @@
 package ControleAquisicoes;
 
-public class Aplicacao {
-    public void inicializa() {
+import java.util.Scanner;
+
+public class Aplicacao
+{
+    private Scanner in;
+    public Aplicacao()
+    {
+        in = new Scanner(System.in);
+    }
+    public void inicializa()
+    {
         // inicializa os funcionarios no departamento
         Departamento d1 = new Departamento("Financeiro", 1000000);
         Departamento d2 = new Departamento("RH", 100000);
@@ -26,9 +35,111 @@ public class Aplicacao {
         Usuario f16 = new Usuario("Sergio", false);
     }
 
-    public void menu() {
+    public void menu()
+    {
         // Menu de selecao de usuario
-        // menu de funcionario
-        // menu de administrador
+         escolhaUsuario();
+         int op = leInteiro();
+         if (op == 1)
+         {
+             // menu de administrador
+             mostraMenuAdm();
+             op = leInteiro();
+             switch (op)
+             {
+                 case 0:
+                     break;
+                 case 1:
+                     break;
+                 case 2:
+                     break;
+                 case 3:
+                     break;
+                 case 4:
+                     break;
+                 case 5:
+                     break;
+                 case 6:
+                     break;
+                 default:
+                     System.out.println("Opção Inválida");
+                     break;
+             }
+         }
+         else
+         {
+             // menu de funcionario
+             mostraMenuFuncionario();
+             op = leInteiro();
+             switch (op)
+             {
+                 case 0:
+                     break;
+                 case 1:
+                     break;
+                 case 2:
+                     break;
+                 case 3:
+                     break;
+                 case 4:
+                     break;
+                 case 5:
+                     break;
+                 case 6:
+                     break;
+                 default:
+                     System.out.println("Opção Inválida");
+                     break;
+             }
+         }
+
+    }
+
+    public void mostraMenuAdm()
+    {
+        System.out.println("[0] - Encerrar menu");
+        System.out.println("[1] - Solicitar Pedido");
+        System.out.println("[2] - Listar todos os pedidos entre duas datas");
+        System.out.println("[3] - Buscar pedidos por funcionário solicitante");
+        System.out.println("[4] - Buscar pedidos pela descrição de um item");
+        System.out.println("[5] - Visualizar os detalhes de um pedido");
+        System.out.println("[x] - Trocar de Usuario");
+    }
+
+    public void mostraMenuFuncionario()
+    {
+        System.out.println("[0] - Encerrar menu");
+        System.out.println("[1] - Solicitar Pedido");
+        System.out.println("[x] - Trocar de Usuario");
+    }
+
+    private void escolhaUsuario()
+    {
+        System.out.println("Escolha entre Funcionário ou Administrador: ");
+        System.out.println("[1] - Administrador");
+        System.out.println("[2] - Funcionário");
+    }
+
+    private int leInteiro()
+    {
+        boolean ok = false;
+        int numero = -1;
+        while(!ok)
+        {
+            try
+            {
+                numero = in.nextInt();
+                ok = true;
+            }
+            catch (Exception e)
+            {
+                System.out.println("Entrada invalida. Digite um numero inteiro");
+            }
+            finally
+            {
+                String aux = in.nextLine();
+            }
+        }
+        return numero;
     }
 }
