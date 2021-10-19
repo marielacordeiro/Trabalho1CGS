@@ -31,6 +31,66 @@ public class Aplicacao
         Usuario f16 = new Usuario("Sergio", false);
     }
 
+        public void menu()
+    {
+        // Menu de selecao de usuario
+         escolhaUsuario();
+         int op = leInteiro();
+         if (op == 1)
+         {
+             // menu de administrador
+             mostraMenuAdm();
+             op = leInteiro();
+             switch (op)
+             {
+                 case 0:
+                     break;
+                 case 1:
+                     break;
+                 case 2:
+                     break;
+                 case 3:
+                     break;
+                 case 4:
+                     break;
+                 case 5:
+                     break;
+                 case 6:
+                     break;
+                 default:
+                     System.out.println("Opção Inválida");
+                     break;
+             }
+         }
+         else
+         {
+             // menu de funcionario
+             mostraMenuFuncionario();
+             op = leInteiro();
+             switch (op)
+             {
+                 case 0:
+                     break;
+                 case 1:
+                     break;
+                 case 2:
+                     break;
+                 case 3:
+                     break;
+                 case 4:
+                     break;
+                 case 5:
+                     break;
+                 case 6:
+                     break;
+                 default:
+                     System.out.println("Opção Inválida");
+                     break;
+             }
+         }
+
+    }
+
     public void mostraMenuFuncionario()
     {
         System.out.println("[0] - Encerrar menu");
