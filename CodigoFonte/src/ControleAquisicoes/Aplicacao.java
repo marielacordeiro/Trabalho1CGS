@@ -71,9 +71,10 @@ public class Aplicacao {
             case 0:
                 break;
             case 1:
-                realizarPedido(usuarioAtual);
+                menu();
                 break;
             case 2:
+                realizarPedido(usuarioAtual);
                 break;
             case 3:
                 break;
@@ -97,6 +98,7 @@ public class Aplicacao {
             case 0:
                 break;
             case 1:
+                menu();
                 break;
             case 2:
                 break;
