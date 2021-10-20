@@ -61,68 +61,81 @@ public class Aplicacao {
         // Menu de selecao de usuario
         escolhaUsuario();
         int op = leInteiro();
-        if (op == 1) {
+        if (op == 1)
+        {
             // escolhe o adm atual
             if(escolheAdm(listaUsuariosAdmin))
                 System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
             else
                 System.out.println("Usuário não encontrado");
             // menu de administrador
-            mostraMenuAdm();
-            op = leInteiro();
-            switch (op) {
-            case 0:
-                break;
-            case 1:
-                menu();
-                break;
-            case 2:
-                realizarPedido(usuarioAtual);
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            default:
-                System.out.println("Opção Inválida");
-                break;
-            }
-        } else {
+            do
+            {
+                mostraMenuAdm();
+                op = leInteiro();
+                switch (op)
+                {
+                case 0:
+                    System.out.println("Sistema Finalizado!");
+                    break;
+                case 1:
+                    menu();
+                    break;
+                case 2:
+                    realizarPedido(usuarioAtual);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    System.out.println("Opção Inválida");
+                    break;
+                }
+            } while(op != 0);
+
+        }
+        else
+        {
             // escolhe o func atual
             if(escolheFunc(listaUsuariosAdmin))
                 System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
             else
                 System.out.println("Usuário não encontrado");
             // menu de funcionario
-            mostraMenuFuncionario();
-            op = leInteiro();
-            switch (op) {
-            case 0:
-                break;
-            case 1:
-                menu();
-                break;
-            case 2:
-                realizarPedido(usuarioAtual);
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            default:
-                System.out.println("Opção Inválida");
-                break;
-            }
+            do
+            {
+                mostraMenuFuncionario();
+                op = leInteiro();
+                switch (op)
+                {
+                case 0:
+                    System.out.println("Sistema Finalizado!");
+                    break;
+                case 1:
+                    menu();
+                    break;
+                case 2:
+                    realizarPedido(usuarioAtual);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    System.out.println("Opção Inválida");
+                    break;
+                }
+            } while(op != 0);
         }
-
     }
 
     public void mostraMenuAdm()
