@@ -116,14 +116,19 @@ public class Aplicacao {
 
     }
 
-    public void mostraMenuAdm() {
+    public void mostraMenuAdm()
+    {
         System.out.println("[0] - Encerrar menu");
-        System.out.println("[1] - Solicitar Pedido");
-        System.out.println("[2] - Listar todos os pedidos entre duas datas");
-        System.out.println("[3] - Buscar pedidos por funcionário solicitante");
-        System.out.println("[4] - Buscar pedidos pela descrição de um item");
-        System.out.println("[5] - Visualizar os detalhes de um pedido");
-        System.out.println("[x] - Trocar de Usuario");
+        System.out.println("[1] - Trocar de Usuário");
+        System.out.println("[2] - Solicitar Pedido");
+        System.out.println("[3] - Listar todos os pedidos entre duas datas");
+        System.out.println("[4] - Buscar pedidos por funcionário solicitante");
+        System.out.println("[5] - Buscar pedidos pela descrição de um item");
+        System.out.println("[6] - Visualizar os detalhes de um pedido");
+        System.out.println("[7] - Número de pedidos total, divididos entre aprovados e reprovados");
+        System.out.println("[8] - Número de pedidos nos últimos 30 dias e seu valor médio");
+        System.out.println("[9] - Valor total de cada categoria nos últimos 30 dias");
+        System.out.println("[10] - Detalhes do pedido de aquisição de maior valor ainda aberto");
     }
 
     public void escolheAdm(List<Usuario> listaUsuarioAdmin) {
@@ -181,8 +186,8 @@ public class Aplicacao {
 
     public void mostraMenuFuncionario() {
         System.out.println("[0] - Encerrar menu");
-        System.out.println("[1] - Solicitar Pedido");
-        System.out.println("[x] - Trocar de Usuario");
+        System.out.println("[1] - Trocar de Usuário");
+        System.out.println("[2] - Solicitar pedido");
     }
 
     private void escolhaUsuario() {
