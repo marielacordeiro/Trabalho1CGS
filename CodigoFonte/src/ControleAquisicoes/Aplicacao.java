@@ -167,23 +167,36 @@ public class Aplicacao {
         }
     }
 
-    public void realizarPedido(Usuario usuarioAtual) {
+    public void realizarPedido(Usuario usuarioAtual)
+    {
+        //Dados de Entrada do pedido
+
         System.out.println("Para realizar um pedido de aquisição, informe a data do pedido: ");
-        String data = in.nextLine().trim();
-        System.out.println("Informe a data de conclusão do pedido: ");
-        String dataConclusao = in.nextLine().trim();
-        System.out.println("Escolha o status do pedido entre aberto, aprovado ou reprovado: ");
-        String status = in.nextLine().trim();
+        String dataAtual = in.nextLine().trim();
         System.out.println("Descrição do item: ");
         String descricao = in.nextLine();
         System.out.println("Valor unitário: ");
         double valorUni = in.nextDouble();
         System.out.println("Quantidade: ");
         int quant = in.nextInt();
-        Pedido pedido = new Pedido(usuarioAtual, data);
+
+        //Criando pedido e item
+        Pedido pedido = new Pedido(usuarioAtual, dataAtual);
         Item item = new Item(descricao, valorUni, quant);
+
+        //Setando o status do pedido para aberto
+        pedido.setStatus("ABERTO");
+
+        //Adicionando um item ao pedido
+        pedido.addItem(item);
+
+        //Validacao do Valor total do pedido
         double valorTotal = item.getValorTotal();
-        System.out.println(valorTotal);
+        Departamento dpUsuario = usuarioAtual.getDepartamento();
+        if(dpUsuario.getValorMaximoPedido() < valorTotal)
+            System.out.println(valorTotal);
+        else
+            System.out.println("Valor total do pedido excedido. Erro ao cadastrá-lo");
     }
 
     public void mostraMenuFuncionario() {
