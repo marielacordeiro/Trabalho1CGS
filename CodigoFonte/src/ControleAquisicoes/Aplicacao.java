@@ -97,6 +97,7 @@ public class Aplicacao {
                 case 4:
                     break;
                 case 5:
+                    buscarFuncionarioSolicitante();
                     break;
                 case 6:
                     break;
@@ -141,7 +142,15 @@ public class Aplicacao {
         }
     }
 
-    public boolean excluiPedido()
+    private void buscarFuncionarioSolicitante()
+    {
+        System.out.println("Informe o funcionário solicitante: ");
+        int idUsuario = in.nextInt();
+        //ArrayList<Pedido> listaPedido = historico.BuscaPedidos(idUsuario);
+
+    }
+
+    private boolean excluiPedido()
     {
         ArrayList<Pedido> listaPedido = historico.getListaPedidos();
 
@@ -193,7 +202,7 @@ public class Aplicacao {
         }
     }
 
-    public void mostraMenuAdm()
+    private void mostraMenuAdm()
     {
         System.out.println("[0] - Encerrar menu");
         System.out.println("[1] - Trocar de Usuário");
@@ -209,7 +218,7 @@ public class Aplicacao {
         System.out.println("[11] - Detalhes do pedido de aquisição de maior valor ainda aberto");
     }
 
-    public boolean escolheAdm(List<Usuario> listaUsuarioAdmin) {
+    private boolean escolheAdm(List<Usuario> listaUsuarioAdmin) {
         System.out.println("-----Lista de administradores registrada-----");
         for (Usuario u : listaUsuarioAdmin) {
             System.out.println(u);
@@ -226,7 +235,7 @@ public class Aplicacao {
         return false;
     }
 
-    public boolean escolheFunc(List<Usuario> listaUsuarios) {
+    private boolean escolheFunc(List<Usuario> listaUsuarios) {
         System.out.println("-----Lista de funcionários registrada-----");
         for (Usuario u : listaUsuarios) {
             System.out.println(u);
@@ -244,7 +253,7 @@ public class Aplicacao {
 
     }
 
-    public void realizarPedido(Usuario usuarioAtual)
+    private void realizarPedido(Usuario usuarioAtual)
     {
         //Dados de Entrada do pedido
         System.out.println("Para realizar um pedido de aquisição, informe a data do pedido: ");
@@ -275,7 +284,7 @@ public class Aplicacao {
             System.out.println("Valor total do pedido excedido. Erro ao cadastrá-lo");
     }
 
-    public void mostraMenuFuncionario() {
+    private void mostraMenuFuncionario() {
         System.out.println("[0] - Encerrar menu");
         System.out.println("[1] - Trocar de Usuário");
         System.out.println("[2] - Solicitar pedido");
