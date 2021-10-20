@@ -141,7 +141,6 @@ public class Aplicacao {
         }
     }
 
-
     public boolean excluiPedido()
     {
         ArrayList<Pedido> listaPedido = historico.getListaPedidos();
@@ -260,9 +259,6 @@ public class Aplicacao {
         //Criando pedido e item
         Pedido pedido = new Pedido(usuarioAtual, dataAtual);
         Item item = new Item(descricao, valorUni, quant);
-
-        //Setando o status do pedido para aberto
-        pedido.setStatus("ABERTO");
 
         //Adicionando um item ao pedido
         pedido.addItem(item);
