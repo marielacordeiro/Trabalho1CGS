@@ -85,6 +85,7 @@ public class Aplicacao {
                     realizarPedido(usuarioAtual);
                     break;
                 case 3:
+                    excluiPedido();
                     break;
                 case 4:
                     break;
@@ -123,6 +124,7 @@ public class Aplicacao {
                     realizarPedido(usuarioAtual);
                     break;
                 case 3:
+                    excluiPedido();
                     break;
                 case 4:
                     break;
@@ -138,19 +140,25 @@ public class Aplicacao {
         }
     }
 
+    public boolean excluiPedido()
+    {
+        return false;
+    }
+
     public void mostraMenuAdm()
     {
         System.out.println("[0] - Encerrar menu");
         System.out.println("[1] - Trocar de Usuário");
         System.out.println("[2] - Solicitar Pedido");
-        System.out.println("[3] - Listar todos os pedidos entre duas datas");
-        System.out.println("[4] - Buscar pedidos por funcionário solicitante");
-        System.out.println("[5] - Buscar pedidos pela descrição de um item");
-        System.out.println("[6] - Visualizar os detalhes de um pedido");
-        System.out.println("[7] - Número de pedidos total, divididos entre aprovados e reprovados");
-        System.out.println("[8] - Número de pedidos nos últimos 30 dias e seu valor médio");
-        System.out.println("[9] - Valor total de cada categoria nos últimos 30 dias");
-        System.out.println("[10] - Detalhes do pedido de aquisição de maior valor ainda aberto");
+        System.out.println("[3] - Excluir Pedido");
+        System.out.println("[4] - Listar todos os pedidos entre duas datas");
+        System.out.println("[5] - Buscar pedidos por funcionário solicitante");
+        System.out.println("[6] - Buscar pedidos pela descrição de um item");
+        System.out.println("[7] - Visualizar os detalhes de um pedido");
+        System.out.println("[8] - Número de pedidos total, divididos entre aprovados e reprovados");
+        System.out.println("[9] - Número de pedidos nos últimos 30 dias e seu valor médio");
+        System.out.println("[10] - Valor total de cada categoria nos últimos 30 dias");
+        System.out.println("[11] - Detalhes do pedido de aquisição de maior valor ainda aberto");
     }
 
     public boolean escolheAdm(List<Usuario> listaUsuarioAdmin) {
@@ -185,6 +193,7 @@ public class Aplicacao {
             }
         }
         return false;
+
     }
 
     public void realizarPedido(Usuario usuarioAtual)
@@ -222,6 +231,7 @@ public class Aplicacao {
         System.out.println("[0] - Encerrar menu");
         System.out.println("[1] - Trocar de Usuário");
         System.out.println("[2] - Solicitar pedido");
+        System.out.println("[3] - Excluir pedido");
     }
 
     private void escolhaUsuario() {
