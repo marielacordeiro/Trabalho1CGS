@@ -209,11 +209,11 @@ public class Aplicacao {
         //Adicionando um item ao pedido
         pedido.addItem(item);
 
-        //Validacao do Valor total do pedido
-        double valorTotal = item.getValorTotal();
+        //Validacao do Valor maximo do pedido
         Departamento dpUsuario = usuarioAtual.getDepartamento();
-        if(dpUsuario.getValorMaximoPedido() < valorTotal)
-            System.out.println(valorTotal);
+        double valorMax = dpUsuario.getValorMaximoPedido();
+        if(pedido.getValorTotal() < valorMax)
+            System.out.format("Valor total do pedido: %s%n" ,valorMax);
         else
             System.out.println("Valor total do pedido excedido. Erro ao cadastrá-lo");
     }
