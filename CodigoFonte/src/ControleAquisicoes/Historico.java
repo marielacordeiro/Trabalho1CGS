@@ -116,4 +116,8 @@ public class Historico {
             return "Nenhum pedido registrado neste histórico.";
         return pedido.toString();
     }
+
+    public ArrayList<Pedido> getListaPedidos() {
+        return listaPedidos;
+    }
 }
