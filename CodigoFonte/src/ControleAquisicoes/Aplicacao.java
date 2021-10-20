@@ -1,7 +1,12 @@
 package ControleAquisicoes;
 
+import sun.util.resources.LocaleData;
+
+import javax.swing.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Aplicacao {
@@ -9,11 +14,13 @@ public class Aplicacao {
     private List<Usuario> listaUsuarios;
     private List<Usuario> listaUsuariosAdmin;
     private Usuario usuarioAtual;
+    private Historico historico;
 
     public Aplicacao() {
         in = new Scanner(System.in);
         listaUsuarios = new ArrayList<>();
         listaUsuariosAdmin = new ArrayList<>();
+        historico = new Historico();
     }
 
     public void inicializa() {
@@ -126,12 +133,6 @@ public class Aplicacao {
                 case 3:
                     excluiPedido();
                     break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
                 default:
                     System.out.println("Opção Inválida");
                     break;
@@ -140,9 +141,57 @@ public class Aplicacao {
         }
     }
 
+
     public boolean excluiPedido()
     {
-        return false;
+        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
+
+        //Verifica se o array possui pedidos
+        if(listaPedido.size() == 0)
+        {
+            System.out.println("Não há pedidos cadastrados");
+            return false;
+        }
+
+        //Printa a lista de pedidos
+        for(Pedido p : listaPedido)
+            System.out.println(p);
+
+        System.out.println("Informe o id do pedido para ser excluido");
+        int id = in.nextInt();
+        Pedido pedido = null;
+        for(Pedido p : listaPedido)
+        {
+            if(p.getIdPedido() == id)
+                pedido = p;
+        }
+        if(pedido == null)
+        {
+            System.out.println("Nenhum pedido encontrado com este Id");
+            return false;
+        }
+        System.out.format("Você tem certeza que deseja excluir o pedido: %n%s%n" , pedido);
+        System.out.println("[1] - Não      [2] - Sim");
+        int op = in.nextInt();
+        switch(op)
+        {
+            case 1:
+                return false;
+            case 2:
+                if(pedido.getFuncSolicitante().equals(usuarioAtual))
+                {
+                    //removePedido(id);
+                    return true;
+                }
+                else
+                {
+                    System.out.println("Erro, Usuário solicitante deve ser o mesmo do pedido!");
+                    return false;
+                }
+            default:
+                System.out.println("Opcão inválida!");
+                return false;
+        }
     }
 
     public void mostraMenuAdm()
@@ -218,11 +267,14 @@ public class Aplicacao {
         //Adicionando um item ao pedido
         pedido.addItem(item);
 
+        //Adicionando um pedido ao historico
+        historico.adicionarPedido(pedido);
+
         //Validacao do Valor maximo do pedido
         Departamento dpUsuario = usuarioAtual.getDepartamento();
         double valorMax = dpUsuario.getValorMaximoPedido();
         if(pedido.getValorTotal() < valorMax)
-            System.out.format("Valor total do pedido: %s%n" ,valorMax);
+            System.out.format("Valor total do pedido: %s%n" , valorMax);
         else
             System.out.println("Valor total do pedido excedido. Erro ao cadastrá-lo");
     }
