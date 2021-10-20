@@ -63,7 +63,10 @@ public class Aplicacao {
         int op = leInteiro();
         if (op == 1) {
             // escolhe o adm atual
-            escolheAdm(listaUsuariosAdmin);
+            if(escolheAdm(listaUsuariosAdmin))
+                System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
+            else
+                System.out.println("Usuário não encontrado");
             // menu de administrador
             mostraMenuAdm();
             op = leInteiro();
@@ -90,7 +93,10 @@ public class Aplicacao {
             }
         } else {
             // escolhe o func atual
-            escolheFunc(listaUsuarios);
+            if(escolheFunc(listaUsuariosAdmin))
+                System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
+            else
+                System.out.println("Usuário não encontrado");
             // menu de funcionario
             mostraMenuFuncionario();
             op = leInteiro();
@@ -101,6 +107,7 @@ public class Aplicacao {
                 menu();
                 break;
             case 2:
+                realizarPedido(usuarioAtual);
                 break;
             case 3:
                 break;
@@ -133,7 +140,7 @@ public class Aplicacao {
         System.out.println("[10] - Detalhes do pedido de aquisição de maior valor ainda aberto");
     }
 
-    public void escolheAdm(List<Usuario> listaUsuarioAdmin) {
+    public boolean escolheAdm(List<Usuario> listaUsuarioAdmin) {
         System.out.println("-----Lista de administradores registrada-----");
         for (Usuario u : listaUsuarioAdmin) {
             System.out.println(u);
@@ -144,13 +151,13 @@ public class Aplicacao {
         for (int i = 0; i < listaUsuarioAdmin.size(); i++) {
             if (id == listaUsuarioAdmin.get(i).getId()) {
                 usuarioAtual = listaUsuarioAdmin.get(i);
-                System.out.println("Você está logado.");
-                break;
+                return true;
             }
         }
+        return false;
     }
 
-    public void escolheFunc(List<Usuario> listaUsuarios) {
+    public boolean escolheFunc(List<Usuario> listaUsuarios) {
         System.out.println("-----Lista de funcionários registrada-----");
         for (Usuario u : listaUsuarios) {
             System.out.println(u);
@@ -161,16 +168,15 @@ public class Aplicacao {
         for (int i = 0; i < listaUsuarios.size(); i++) {
             if (id == listaUsuarios.get(i).getId()) {
                 usuarioAtual = listaUsuarios.get(i);
-                System.out.println("Você está logado.");
-                break;
+                return true;
             }
         }
+        return false;
     }
 
     public void realizarPedido(Usuario usuarioAtual)
     {
         //Dados de Entrada do pedido
-
         System.out.println("Para realizar um pedido de aquisição, informe a data do pedido: ");
         String dataAtual = in.nextLine().trim();
         System.out.println("Descrição do item: ");
