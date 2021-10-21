@@ -3,6 +3,7 @@ package ControleAquisicoes;
 import sun.util.resources.LocaleData;
 
 import javax.swing.*;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -116,6 +117,7 @@ public class Aplicacao {
                     excluiPedido();
                     break;
                 case 4:
+                    pedidosEntreDuasDatas();
                     break;
                 case 5:
                     buscarFuncionarioSolicitante();
@@ -171,6 +173,15 @@ public class Aplicacao {
             else
                 System.out.println("Usuário não encontrado");
         }
+    }
+
+    private void pedidosEntreDuasDatas()
+    {
+        System.out.println("Informa a data inicial (yyyy-MM-dd): ");
+        LocalDate dataInicial = LocalDate.parse(in.nextLine());
+        System.out.println("Informe a data final: (yyyy-MM-dd)");
+        LocalDate dataFinal = LocalDate.parse(in.nextLine());
+        historico.pedidosEntreDuasDatas(dataInicial, dataFinal).forEach(System.out::println);
     }
 
     private void buscarDescricaoItem()
