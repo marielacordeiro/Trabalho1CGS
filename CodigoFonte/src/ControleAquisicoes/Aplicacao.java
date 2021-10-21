@@ -304,7 +304,7 @@ public class Aplicacao {
         Departamento dpUsuario = usuarioAtual.getDepartamento();
         double valorMax = dpUsuario.getValorMaximoPedido();
         if(pedido.getValorTotal() < valorMax)
-            System.out.format("Valor total do pedido: %s%n" , valorMax);
+            System.out.format("Valor total do pedido: %s%n" , pedido.getValorTotal());
         else
             System.out.println("Valor total do pedido excedido. Erro ao cadastrá-lo");
     }
