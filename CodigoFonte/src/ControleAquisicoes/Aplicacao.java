@@ -64,7 +64,73 @@ public class Aplicacao {
         listaUsuarios.add(u16);
     }
 
-    public void menu() {
+
+    private void menuFunc()
+    {
+        int op;
+        do
+            {
+                mostraMenuFuncionario();
+                op = leInteiro();
+                switch (op)
+                {
+                    case 0:
+                        System.out.println("Sistema Finalizado!");
+                        break;
+                    case 1:
+                        menuPrincipal();
+                        op = 0;
+                        break;
+                    case 2:
+                        realizarPedido(usuarioAtual);
+                        break;
+                    case 3:
+                        excluiPedido();
+                        break;
+                    default:
+                        System.out.println("Opção Inválida");
+                        break;
+                }
+            } while(op != 0);
+    }
+    private void menuAdm()
+    {
+        int op;
+        do
+        {
+            mostraMenuAdm();
+            op = leInteiro();
+            switch (op)
+            {
+                    case 0:
+                        System.out.println("Sistema Finalizado!");
+                        break;
+                    case 1:
+                        menuPrincipal();
+                        op = 0;
+                        break;
+                    case 2:
+                        realizarPedido(usuarioAtual);
+                        break;
+                    case 3:
+                        excluiPedido();
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        buscarFuncionarioSolicitante();
+                        break;
+                    case 6:
+                        break;
+                    default:
+                        System.out.println("Opção Inválida");
+                        break;
+                }
+            } while(op != 0);
+    }
+
+    public void menuPrincipal()
+    {
         // Menu de selecao de usuario
         escolhaUsuario();
         int op = leInteiro();
@@ -72,73 +138,23 @@ public class Aplicacao {
         {
             // escolhe o adm atual
             if(escolheAdm(listaUsuariosAdmin))
+            {
                 System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
+                menuAdm();
+            }
             else
                 System.out.println("Usuário não encontrado");
-            // menu de administrador
-            do
-            {
-                mostraMenuAdm();
-                op = leInteiro();
-                switch (op)
-                {
-                case 0:
-                    System.out.println("Sistema Finalizado!");
-                    break;
-                case 1:
-                    menu();
-                    break;
-                case 2:
-                    realizarPedido(usuarioAtual);
-                    break;
-                case 3:
-                    excluiPedido();
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    buscarFuncionarioSolicitante();
-                    break;
-                case 6:
-                    break;
-                default:
-                    System.out.println("Opção Inválida");
-                    break;
-                }
-            } while(op != 0);
-
         }
-        else
+        else if(op == 2)
         {
             // escolhe o func atual
-            if(escolheFunc(listaUsuariosAdmin))
+            if(escolheFunc(listaUsuarios))
+            {
                 System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
+                menuFunc();
+            }
             else
                 System.out.println("Usuário não encontrado");
-            // menu de funcionario
-            do
-            {
-                mostraMenuFuncionario();
-                op = leInteiro();
-                switch (op)
-                {
-                case 0:
-                    System.out.println("Sistema Finalizado!");
-                    break;
-                case 1:
-                    menu();
-                    break;
-                case 2:
-                    realizarPedido(usuarioAtual);
-                    break;
-                case 3:
-                    excluiPedido();
-                    break;
-                default:
-                    System.out.println("Opção Inválida");
-                    break;
-                }
-            } while(op != 0);
         }
     }
 
@@ -256,8 +272,6 @@ public class Aplicacao {
     private void realizarPedido(Usuario usuarioAtual)
     {
         //Dados de Entrada do pedido
-        System.out.println("Para realizar um pedido de aquisição, informe a data do pedido: ");
-        String dataAtual = in.nextLine().trim();
         System.out.println("Descrição do item: ");
         String descricao = in.nextLine();
         System.out.println("Valor unitário: ");
@@ -265,8 +279,10 @@ public class Aplicacao {
         System.out.println("Quantidade: ");
         int quant = in.nextInt();
 
+        //Local Date
+        LocalDate date = LocalDate.now();
         //Criando pedido e item
-        Pedido pedido = new Pedido(usuarioAtual, dataAtual);
+        Pedido pedido = new Pedido(usuarioAtual, date);
         Item item = new Item(descricao, valorUni, quant);
 
         //Adicionando um item ao pedido
