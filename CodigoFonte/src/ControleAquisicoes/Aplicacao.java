@@ -128,6 +128,7 @@ public class Aplicacao {
                 case 8:
                     break;
                 case 9:
+                    historico.pedidosUltimos30Dias().forEach(System.out::println);
                     break;
                 case 10:
                     System.out.println(historico.valorTotalCategoria());
