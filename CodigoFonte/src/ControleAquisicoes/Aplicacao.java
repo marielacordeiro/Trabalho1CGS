@@ -126,6 +126,7 @@ public class Aplicacao {
                 case 7:
                     break;
                 case 8:
+                    System.out.println(historico.totalPedidos());
                     break;
                 case 9:
                     historico.pedidosUltimos30Dias().forEach(System.out::println);
