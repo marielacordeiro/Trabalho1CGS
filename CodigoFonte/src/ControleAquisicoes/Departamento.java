@@ -9,28 +9,27 @@ public class Departamento
     private double valorMaximoPedido;
     private ArrayList<Usuario> funcionarios;
 
-    
     public Departamento(String nome, double valorMaximoPedido) {
         this.nome = nome;
         this.valorMaximoPedido = valorMaximoPedido;
         this.funcionarios = new ArrayList<Usuario>();
     }
 
-    public void addFuncionario(Usuario funcionario) throws IllegalArgumentException{
+    public void addFuncionario(Usuario funcionario) throws IllegalArgumentException {
 
-        //Valida se não estamos adicionando o mesmo funcionário novamente
-        if(funcionarios.contains(funcionario)){
+        // Valida se não estamos adicionando o mesmo funcionário novamente
+        if (funcionarios.contains(funcionario)) {
             throw new IllegalArgumentException();
         }
 
         this.funcionarios.add(funcionario);
     }
 
-    public String getNome(){
+    public String getNome() {
         return this.nome;
     }
 
-    public double getValorMaximoPedido(){
+    public double getValorMaximoPedido() {
         return this.valorMaximoPedido;
     }
 

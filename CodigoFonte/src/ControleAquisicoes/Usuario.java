@@ -1,15 +1,17 @@
 package ControleAquisicoes;
-public class Usuario
-{
+
+public class Usuario {
     private static int nextId = 0;
     protected int id;
     protected String nome;
     protected boolean isAdmin;
+    protected Departamento departamento;
 
-    public Usuario(String nome, boolean isAdmin) {
+    public Usuario(String nome, boolean isAdmin, Departamento departamento) {
         this.id = nextId++;
         this.nome = nome;
         this.isAdmin = isAdmin;
+        this.departamento = departamento;
     }
 
     public boolean getIsAdmin() {
@@ -25,7 +27,11 @@ public class Usuario
     }
 
     public Departamento getDepartamento() {
-        return null;
-        // TODO: refatorar o codigo para que Usuarios tenham um departamento como atributo ou verificar como fazer caso decida-se manter o formato atual
+        return departamento;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + ", Identificador: " + id;
     }
 }
