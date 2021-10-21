@@ -133,6 +133,7 @@ public class Aplicacao {
                     System.out.println(historico.valorTotalCategoria());
                     break;
                 case 11:
+                    System.out.println(historico.detalhePedidoMaiorAquisicao());
                     break;
                 default:
                     System.out.println("Opção Inválida");
