@@ -309,7 +309,7 @@ public class Aplicacao {
         System.out.println("Valor unitário: ");
         double valorUni = in.nextDouble();
         System.out.println("Quantidade: ");
-        int quant = in.nextInt();
+        int quant = leInteiro();
 
         //Local Date
         LocalDate date = LocalDate.now();
