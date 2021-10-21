@@ -125,9 +125,18 @@ public class Aplicacao {
                     break;
                 case 7:
                     break;
-                    default:
-                        System.out.println("Opção Inválida");
-                        break;
+                case 8:
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    System.out.println(historico.valorTotalCategoria());
+                    break;
+                case 11:
+                    break;
+                default:
+                    System.out.println("Opção Inválida");
+                    break;
                 }
             } while(op != 0);
     }
