@@ -102,26 +102,29 @@ public class Aplicacao {
             op = leInteiro();
             switch (op)
             {
-                    case 0:
-                        System.out.println("Sistema Finalizado!");
-                        break;
-                    case 1:
-                        menuPrincipal();
-                        op = 0;
-                        break;
-                    case 2:
-                        realizarPedido(usuarioAtual);
-                        break;
-                    case 3:
-                        excluiPedido();
-                        break;
-                    case 4:
-                        break;
-                    case 5:
-                        buscarFuncionarioSolicitante();
-                        break;
-                    case 6:
-                        break;
+                case 0:
+                    System.out.println("Sistema Finalizado!");
+                    break;
+                case 1:
+                    menuPrincipal();
+                    op = 0;
+                    break;
+                case 2:
+                    realizarPedido(usuarioAtual);
+                    break;
+                case 3:
+                    excluiPedido();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    buscarFuncionarioSolicitante();
+                    break;
+                case 6:
+                    buscarDescricaoItem();
+                    break;
+                case 7:
+                    break;
                     default:
                         System.out.println("Opção Inválida");
                         break;
@@ -158,6 +161,12 @@ public class Aplicacao {
         }
     }
 
+    private void buscarDescricaoItem()
+    {
+        System.out.println("Informe a descrição do item: ");
+        String descItem = in.nextLine();
+        historico.buscarPedidosDescricaoItem(descItem).forEach(System.out::println);
+    }
     private void buscarFuncionarioSolicitante()
     {
         System.out.println("Informe o funcionário solicitante: ");
