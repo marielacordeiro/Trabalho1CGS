@@ -1,7 +1,5 @@
 package ControleAquisicoes;
 
-import sun.util.resources.LocaleData;
-
 import javax.swing.*;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
