@@ -15,6 +15,11 @@ public class Departamento
         this.funcionarios = new ArrayList<Usuario>();
     }
 
+    @Override
+    public String toString() {
+        return "Nome: " + nome + " Valor Maximo de Pedido: " + valorMaximoPedido + " Funcionarios: " + funcionarios;
+    }
+
     public void addFuncionario(Usuario funcionario) throws IllegalArgumentException {
 
         // Valida se não estamos adicionando o mesmo funcionário novamente
@@ -32,5 +37,4 @@ public class Departamento
     public double getValorMaximoPedido() {
         return this.valorMaximoPedido;
     }
-
 }

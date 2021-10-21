@@ -1,11 +1,8 @@
 package ControleAquisicoes;
 
-import javax.swing.*;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Aplicacao {

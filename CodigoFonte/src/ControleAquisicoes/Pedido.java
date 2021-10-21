@@ -100,10 +100,10 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Pedido{" + "idPedido=" + idPedido + ", itens=" + itens + ", funcSolicitante=" + funcSolicitante
-                + ", departSolicitante=" + departSolicitante + ", dataPedido='" + dataPedido + '\''
-                + ", dataConclusao='" + dataConclusao + '\'' + ", valorTotal='" + this.getValorTotal() + '\''
-                + ", status='" + status + '\'' + '}';
+        return "Id do Pedido = " + idPedido + ", itens = " + itens + ", Funcionario Solicitante = " + funcSolicitante
+                + ", Departamento Solicitante = " + departSolicitante + ", Data do Pedido = '" + dataPedido + '\''
+                + ", Data de Conclusao = '" + dataConclusao + '\'' + ", Valor Total = '" + this.getValorTotal() + '\''
+                + ", Status = '" + status + '\'';
     }
 
 }
