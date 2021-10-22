@@ -116,7 +116,7 @@ public class Aplicacao {
                 pedidosEntreDuasDatas();
                 break;
             case 5:
-                buscarFuncionarioSolicitante();
+                buscaPedidoPorFuncionarioSolicitante();
                 break;
             case 6:
                 buscarDescricaoItem();
@@ -183,13 +183,11 @@ public class Aplicacao {
         historico.buscarPedidosDescricaoItem(descItem).forEach(System.out::println);
     }
 
-    private void buscarFuncionarioSolicitante() {
+    private void buscaPedidoPorFuncionarioSolicitante() {
+        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
         System.out.println("Informe o funcionário solicitante: ");
         int idUsuario = in.nextInt();
-        // ArrayList<Pedido> listaPedido = historico.BuscaPedidos(idUsuario);
-        // listaUsuarios.stream().filter(u -> u.getId() ==
-        // idUsuario).forEach(System.out::println);
-
+        listaPedido.stream().filter(u -> u.getFuncSolicitante().getId() == idUsuario).forEach(System.out::println);
     }
 
     private boolean excluiPedido() {
