@@ -96,7 +96,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Id do Pedido = " + idPedido + ", itens = " + itens + "Funcionario Solicitante = " + funcSolicitante
+        return "Id do Pedido = " + idPedido + ", itens = " + itens + " Funcionario Solicitante = " + funcSolicitante
                 + ", Departamento Solicitante = " + departSolicitante + ", Data do Pedido = '" + dataPedido + '\''
                 + ", Data de Conclusao = '" + dataConclusao + '\'' + ", Valor Total = '" + this.getValorTotal() + '\''
                 + ", Status = '" + status + '\'';

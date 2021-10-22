@@ -42,6 +42,6 @@ public class Item {
     @Override
     public String toString() {
         return "item " + this.idItem + " : descrição: " + this.descricao + " | valor unitário: R$ " + this.valor
-                + " | quantidade: " + this.quantidade + " |  Valor total: R$ " + this.valor * this.quantidade + " |";
+                + " | quantidade: " + this.quantidade + " |  Valor total: R$ " + this.valor * this.quantidade;
     }
 }

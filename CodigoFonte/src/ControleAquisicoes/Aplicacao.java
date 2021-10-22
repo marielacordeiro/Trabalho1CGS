@@ -12,6 +12,7 @@ public class Aplicacao {
     private List<Departamento> departamentos;
     private Usuario usuarioAtual;
     private Historico historico;
+    ArrayList<Pedido> listaPedido;
 
     public Aplicacao() {
         in = new Scanner(System.in);
@@ -19,6 +20,7 @@ public class Aplicacao {
         listaUsuariosAdmin = new ArrayList<>();
         historico = new Historico();
         departamentos = new ArrayList<Departamento>();
+        listaPedido = historico.getListaPedidos();
     }
 
     public void inicializa() {
@@ -185,21 +187,21 @@ public class Aplicacao {
     }
 
     private void buscaPedidoPorFuncionarioSolicitante() {
-        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
         System.out.println("Informe o funcionário solicitante: ");
         int idUsuario = in.nextInt();
         listaPedido.stream().filter(u -> u.getFuncSolicitante().getId() == idUsuario).forEach(System.out::println);
     }
 
     private void visualizarDetalhesPedido() {
-        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
         System.out.println("Informe o id do pedido que deseja visualizar: ");
         int idPedido = in.nextInt();
-        listaPedido.stream().filter(u -> u.getIdPedido() == idPedido).forEach(System.out::println);
+        Pedido pedidoBuscado = historico.visualizarPedido(idPedido);
+        System.out.println(pedidoBuscado.toString());
+        // listaPedido.stream().filter(u -> u.getIdPedido() ==
+        // idPedido).forEach(System.out::println);
     }
 
     private boolean excluiPedido() {
-        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
 
         // Verifica se o array possui pedidos
         if (listaPedido.size() == 0) {
@@ -252,7 +254,7 @@ public class Aplicacao {
         System.out.println("[4] - Listar todos os pedidos entre duas datas");
         System.out.println("[5] - Buscar pedidos por funcionário solicitante");
         System.out.println("[6] - Buscar pedidos pela descrição de um item");
-        System.out.println("[7] - Visualizar os detalhes de um pedido para aprovar ou reprovar");
+        System.out.println("[7] - Visualizar os detalhes de um pedido");
         System.out.println("[8] - Número de pedidos total, divididos entre aprovados e reprovados");
         System.out.println("[9] - Número de pedidos nos últimos 30 dias e seu valor médio");
         System.out.println("[10] - Valor total de cada categoria nos últimos 30 dias");
