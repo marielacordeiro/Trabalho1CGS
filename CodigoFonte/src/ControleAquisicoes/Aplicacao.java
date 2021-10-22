@@ -122,6 +122,7 @@ public class Aplicacao {
                 buscarDescricaoItem();
                 break;
             case 7:
+                visualizarDetalhesPedido();
                 break;
             case 8:
                 System.out.println(historico.totalPedidos());
@@ -188,6 +189,13 @@ public class Aplicacao {
         System.out.println("Informe o funcionário solicitante: ");
         int idUsuario = in.nextInt();
         listaPedido.stream().filter(u -> u.getFuncSolicitante().getId() == idUsuario).forEach(System.out::println);
+    }
+
+    private void visualizarDetalhesPedido() {
+        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
+        System.out.println("Informe o id do pedido que deseja visualizar: ");
+        int idPedido = in.nextInt();
+        listaPedido.stream().filter(u -> u.getIdPedido() == idPedido).forEach(System.out::println);
     }
 
     private boolean excluiPedido() {
