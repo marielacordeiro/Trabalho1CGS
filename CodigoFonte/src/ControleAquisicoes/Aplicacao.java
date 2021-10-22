@@ -144,6 +144,9 @@ public class Aplicacao {
                 case 12:
                     aprovaReprovaPedido();
                     break;
+                case 13:
+                    adicionaUsuario();
+                    break;
                 default:
                     System.out.println("Opção Inválida");
                     break;
@@ -270,6 +273,7 @@ public class Aplicacao {
         System.out.println("[10] - Valor total de cada categoria nos últimos 30 dias");
         System.out.println("[11] - Detalhes do pedido de aquisição de maior valor ainda aberto");
         System.out.println("[12] - Aprovar ou reprovar algum pedido em aberto");
+        System.out.println("[13] - Adicionar novo usuário");
     }
 
     private boolean escolheAdm(List<Usuario> listaUsuarioAdmin) {
@@ -433,7 +437,6 @@ public class Aplicacao {
     private boolean adicionaUsuario()
     {
         System.out.println("Digite o nome do novo usuário:");
-        String ignorada = in.nextLine();
         String nome = in.nextLine();
 
         boolean admin = false;
