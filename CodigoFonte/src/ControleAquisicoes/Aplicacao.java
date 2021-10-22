@@ -67,124 +67,109 @@ public class Aplicacao {
         listaUsuarios.add(u16);
     }
 
-
-    private void menuFunc()
-    {
+    private void menuFunc() {
         int op;
-        do
-            {
-                mostraMenuFuncionario();
-                op = leInteiro();
-                switch (op)
-                {
-                    case 0:
-                        System.out.println("Sistema Finalizado!");
-                        break;
-                    case 1:
-                        menuPrincipal();
-                        op = 0;
-                        break;
-                    case 2:
-                        realizarPedido(usuarioAtual);
-                        break;
-                    case 3:
-                        excluiPedido();
-                        break;
-                    default:
-                        System.out.println("Opção Inválida");
-                        break;
-                }
-            } while(op != 0);
+        do {
+            mostraMenuFuncionario();
+            op = leInteiro();
+            switch (op) {
+            case 0:
+                System.out.println("Sistema Finalizado!");
+                break;
+            case 1:
+                menuPrincipal();
+                op = 0;
+                break;
+            case 2:
+                realizarPedido(usuarioAtual);
+                break;
+            case 3:
+                excluiPedido();
+                break;
+            default:
+                System.out.println("Opção Inválida");
+                break;
+            }
+        } while (op != 0);
     }
-    private void menuAdm()
-    {
+
+    private void menuAdm() {
         int op;
-        do
-        {
+        do {
             mostraMenuAdm();
             op = leInteiro();
-            switch (op)
-            {
-                case 0:
-                    System.out.println("Sistema Finalizado!");
-                    break;
-                case 1:
-                    menuPrincipal();
-                    op = 0;
-                    break;
-                case 2:
-                    realizarPedido(usuarioAtual);
-                    break;
-                case 3:
-                    excluiPedido();
-                    break;
-                case 4:
-                    pedidosEntreDuasDatas();
-                    break;
-                case 5:
-                    buscarFuncionarioSolicitante();
-                    break;
-                case 6:
-                    buscarDescricaoItem();
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    System.out.println(historico.totalPedidos());
-                    break;
-                case 9:
-                    historico.pedidosUltimos30Dias().forEach(System.out::println);
-                    break;
-                case 10:
-                    System.out.println(historico.valorTotalCategoria());
-                    break;
-                case 11:
-                    System.out.println(historico.detalhePedidoMaiorAquisicao());
-                    break;
-                case 12:
-                    aprovaReprovaPedido();
-                    break;
-                case 13:
-                    adicionaUsuario();
-                    break;
-                default:
-                    System.out.println("Opção Inválida");
-                    break;
-                }
-            } while(op != 0);
+            switch (op) {
+            case 0:
+                System.out.println("Sistema Finalizado!");
+                break;
+            case 1:
+                menuPrincipal();
+                op = 0;
+                break;
+            case 2:
+                realizarPedido(usuarioAtual);
+                break;
+            case 3:
+                excluiPedido();
+                break;
+            case 4:
+                pedidosEntreDuasDatas();
+                break;
+            case 5:
+                buscarFuncionarioSolicitante();
+                break;
+            case 6:
+                buscarDescricaoItem();
+                break;
+            case 7:
+                break;
+            case 8:
+                System.out.println(historico.totalPedidos());
+                break;
+            case 9:
+                historico.pedidosUltimos30Dias().forEach(System.out::println);
+                break;
+            case 10:
+                System.out.println(historico.valorTotalCategoria());
+                break;
+            case 11:
+                System.out.println(historico.detalhePedidoMaiorAquisicao());
+                break;
+            case 12:
+                aprovaReprovaPedido();
+                break;
+            case 13:
+                adicionaUsuario();
+                break;
+            default:
+                System.out.println("Opção Inválida");
+                break;
+            }
+        } while (op != 0);
     }
 
-    public void menuPrincipal()
-    {
+    public void menuPrincipal() {
         // Menu de selecao de usuario
         escolhaUsuario();
         int op = leInteiro();
-        if (op == 1)
-        {
+        if (op == 1) {
             // escolhe o adm atual
-            if(escolheAdm(listaUsuariosAdmin))
-            {
-                System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
+            if (escolheAdm(listaUsuariosAdmin)) {
+                System.out.format("Bem-vindo(a), %s%n", usuarioAtual.getNome());
                 menuAdm();
-            }
-            else
+            } else
                 System.out.println("Usuário não encontrado");
-        }
-        else if(op == 2)
-        {
+        } else if (op == 2) {
             // escolhe o func atual
-            if(escolheFunc(listaUsuarios))
-            {
-                System.out.format("Bem-vindo(a), %s%n" , usuarioAtual.getNome());
+            if (escolheFunc(listaUsuarios)) {
+                System.out.format("Bem-vindo(a), %s%n", usuarioAtual.getNome());
                 menuFunc();
-            }
-            else
+            } else
                 System.out.println("Usuário não encontrado");
         }
     }
 
-    private void pedidosEntreDuasDatas()
-    {
+    private void pedidosEntreDuasDatas() {
         System.out.println("Informa a data inicial (yyyy-MM-dd): ");
         LocalDate dataInicial = LocalDate.parse(in.nextLine());
         System.out.println("Informe a data final: (yyyy-MM-dd)");
@@ -192,74 +177,71 @@ public class Aplicacao {
         historico.pedidosEntreDuasDatas(dataInicial, dataFinal).forEach(System.out::println);
     }
 
-    private void buscarDescricaoItem()
-    {
+    private void buscarDescricaoItem() {
         System.out.println("Informe a descrição do item: ");
         String descItem = in.nextLine();
         historico.buscarPedidosDescricaoItem(descItem).forEach(System.out::println);
     }
-    private void buscarFuncionarioSolicitante()
-    {
+
+    private void buscarFuncionarioSolicitante() {
         System.out.println("Informe o funcionário solicitante: ");
         int idUsuario = in.nextInt();
-        //ArrayList<Pedido> listaPedido = historico.BuscaPedidos(idUsuario);
+        // ArrayList<Pedido> listaPedido = historico.BuscaPedidos(idUsuario);
+        // System.out.println("Informe o funcionário solicitante: ");
+        // int idUsuario = in.nextInt();
+        // listaUsuarios.stream().filter(u -> u.getId() ==
+        // idUsuario).forEach(System.out::println);
 
     }
 
-    private boolean excluiPedido()
-    {
+    private boolean excluiPedido() {
         ArrayList<Pedido> listaPedido = historico.getListaPedidos();
 
-        //Verifica se o array possui pedidos
-        if(listaPedido.size() == 0)
-        {
+        // Verifica se o array possui pedidos
+        if (listaPedido.size() == 0) {
             System.out.println("Não há pedidos cadastrados");
             return false;
         }
 
-        //Printa a lista de pedidos
-        for(Pedido p : listaPedido)
+        // Printa a lista de pedidos
+        for (Pedido p : listaPedido)
             System.out.println(p);
 
         System.out.println("Informe o id do pedido para ser excluido");
         int id = in.nextInt();
         Pedido pedido = null;
-        for(Pedido p : listaPedido)
-        {
-            if(p.getIdPedido() == id)
+        for (Pedido p : listaPedido) {
+            if (p.getIdPedido() == id)
                 pedido = p;
         }
-        if(pedido == null)
-        {
+        if (pedido == null) {
             System.out.println("Nenhum pedido encontrado com este Id");
             return false;
         }
-        System.out.format("Você tem certeza que deseja excluir o pedido: %n%s%n" , pedido);
+        System.out.format("Você tem certeza que deseja excluir o pedido: %n%s%n", pedido);
         System.out.println("[1] - Não      [2] - Sim");
         int op = in.nextInt();
-        switch(op)
-        {
-            case 1:
-                return false;
-            case 2:
-                if(pedido.getFuncSolicitante().equals(usuarioAtual))
-                {
-                    //removePedido(id);
+        switch (op) {
+        case 1:
+            return false;
+        case 2:
+            if (pedido.getFuncSolicitante().equals(usuarioAtual)) {
+                Pedido ped = historico.visualizarPedido(id);
+                if (ped.getStatus().equals("ABERTO")) {
+                    listaPedido.remove(ped);
                     return true;
                 }
-                else
-                {
-                    System.out.println("Erro, Usuário solicitante deve ser o mesmo do pedido!");
-                    return false;
-                }
-            default:
-                System.out.println("Opcão inválida!");
+            } else {
+                System.out.println("Erro, Usuário solicitante deve ser o mesmo do pedido!");
                 return false;
+            }
+        default:
+            System.out.println("Opcão inválida!");
+            return false;
         }
     }
 
-    private void mostraMenuAdm()
-    {
+    private void mostraMenuAdm() {
         System.out.println("[0] - Encerrar menu");
         System.out.println("[1] - Trocar de Usuário");
         System.out.println("[2] - Solicitar Pedido");
@@ -267,7 +249,7 @@ public class Aplicacao {
         System.out.println("[4] - Listar todos os pedidos entre duas datas");
         System.out.println("[5] - Buscar pedidos por funcionário solicitante");
         System.out.println("[6] - Buscar pedidos pela descrição de um item");
-        System.out.println("[7] - Visualizar os detalhes de um pedido");
+        System.out.println("[7] - Visualizar os detalhes de um pedido para aprovar ou reprovar");
         System.out.println("[8] - Número de pedidos total, divididos entre aprovados e reprovados");
         System.out.println("[9] - Número de pedidos nos últimos 30 dias e seu valor médio");
         System.out.println("[10] - Valor total de cada categoria nos últimos 30 dias");
@@ -311,9 +293,8 @@ public class Aplicacao {
 
     }
 
-    private void realizarPedido(Usuario usuarioAtual)
-    {
-        //Dados de Entrada do pedido
+    private void realizarPedido(Usuario usuarioAtual) {
+        // Dados de Entrada do pedido
         System.out.println("Descrição do item: ");
         String descricao = in.nextLine();
         System.out.println("Valor unitário: ");
@@ -321,23 +302,23 @@ public class Aplicacao {
         System.out.println("Quantidade: ");
         int quant = leInteiro();
 
-        //Local Date
+        // Local Date
         LocalDate date = LocalDate.now();
-        //Criando pedido e item
+        // Criando pedido e item
         Pedido pedido = new Pedido(usuarioAtual, date);
         Item item = new Item(descricao, valorUni, quant);
 
-        //Adicionando um item ao pedido
+        // Adicionando um item ao pedido
         pedido.addItem(item);
 
-        //Adicionando um pedido ao historico
+        // Adicionando um pedido ao historico
         historico.adicionarPedido(pedido);
 
-        //Validacao do Valor maximo do pedido
+        // Validacao do Valor maximo do pedido
         Departamento dpUsuario = usuarioAtual.getDepartamento();
         double valorMax = dpUsuario.getValorMaximoPedido();
-        if(pedido.getValorTotal() < valorMax)
-            System.out.format("Valor total do pedido: %s%n" , pedido.getValorTotal());
+        if (pedido.getValorTotal() < valorMax)
+            System.out.format("Valor total do pedido: %s%n", pedido.getValorTotal());
         else
             System.out.println("Valor total do pedido excedido. Erro ao cadastrá-lo");
     }
@@ -371,19 +352,17 @@ public class Aplicacao {
         return numero;
     }
 
-    private boolean aprovaReprovaPedido()
-    {
+    private boolean aprovaReprovaPedido() {
         ArrayList<Pedido> listaPedido = historico.getListaPedidos();
 
-        if(listaPedido.size() == 0)
-        {
+        if (listaPedido.size() == 0) {
             System.out.println("Não há pedidos cadastrados");
             return false;
         }
 
         System.out.println("Pedidos em aberto:");
-        for(Pedido p : listaPedido){
-            if(p.getStatus().equalsIgnoreCase("aberto")){
+        for (Pedido p : listaPedido) {
+            if (p.getStatus().equalsIgnoreCase("aberto")) {
                 System.out.println(p);
             }
         }
@@ -391,51 +370,41 @@ public class Aplicacao {
         System.out.println("Informe o id do pedido a ser aprovado ou reprovado");
         int id = in.nextInt();
         Pedido pedido = null;
-        for(Pedido p : listaPedido)
-        {
-            if(p.getIdPedido() == id)
+        for (Pedido p : listaPedido) {
+            if (p.getIdPedido() == id)
                 pedido = p;
         }
-        if(pedido == null)
-        {
+        if (pedido == null) {
             System.out.println("Nenhum pedido encontrado com este Id");
             return false;
         }
-        System.out.format("Você deseja aprovar ou reprovar o pedido: %n%s%n" , pedido);
+        System.out.format("Você deseja aprovar ou reprovar o pedido: %n%s%n", pedido);
         System.out.println("[1] - Aprovar      [2] - Reprovar");
         int op = in.nextInt();
-        switch(op)
-        {
-            case 1:
-                if(pedido.getStatus().equalsIgnoreCase("aberto"))
-                {
-                   pedido.setStatus("APROVADO");
-                    return true;
-                }
-                else
-                {
-                    System.out.println("Erro, apenas pedidos abertos podem ser aprovados ou reprovados!");
-                    return false;
-                }
-            case 2:
-                if(pedido.getStatus().equalsIgnoreCase("aberto"))
-                {
-                    pedido.setStatus("REPROVADO");
-                    return true;
-                }
-                else
-                {
-                    System.out.println("Erro, apenas pedidos abertos podem ser aprovados ou reprovados!");
-                    return false;
-                }
-            default:
-                System.out.println("Opcão inválida!");
+        switch (op) {
+        case 1:
+            if (pedido.getStatus().equalsIgnoreCase("aberto")) {
+                pedido.setStatus("APROVADO");
+                return true;
+            } else {
+                System.out.println("Erro, apenas pedidos abertos podem ser aprovados ou reprovados!");
                 return false;
+            }
+        case 2:
+            if (pedido.getStatus().equalsIgnoreCase("aberto")) {
+                pedido.setStatus("REPROVADO");
+                return true;
+            } else {
+                System.out.println("Erro, apenas pedidos abertos podem ser aprovados ou reprovados!");
+                return false;
+            }
+        default:
+            System.out.println("Opcão inválida!");
+            return false;
         }
     }
 
-    private boolean adicionaUsuario()
-    {
+    private boolean adicionaUsuario() {
         System.out.println("Digite o nome do novo usuário:");
         String nome = in.nextLine();
 
@@ -443,15 +412,15 @@ public class Aplicacao {
         System.out.println("O novo usuário é administrador?");
         System.out.println("[1] - Sim      [2] - Não");
         int op = in.nextInt();
-        switch(op) {
-            case 1:
-                admin = true;
-                break;
-            case 2:
-                admin = false;
-                break;
-            default:
-                System.out.println("Opcão inválida!");
+        switch (op) {
+        case 1:
+            admin = true;
+            break;
+        case 2:
+            admin = false;
+            break;
+        default:
+            System.out.println("Opcão inválida!");
         }
 
         Departamento depart = null;
@@ -462,34 +431,34 @@ public class Aplicacao {
         System.out.println("[4] - Administração");
         System.out.println("[5] - Marketing");
         op = in.nextInt();
-        switch(op) {
-            case 1:
-                depart = this.departamentos.get(0);
-                break;
+        switch (op) {
+        case 1:
+            depart = this.departamentos.get(0);
+            break;
 
-            case 2:
-                depart = this.departamentos.get(1);
-                break;
+        case 2:
+            depart = this.departamentos.get(1);
+            break;
 
-            case 3:
-                depart = this.departamentos.get(2);
-                break;
+        case 3:
+            depart = this.departamentos.get(2);
+            break;
 
-            case 4:
-                depart = this.departamentos.get(3);
-                break;
+        case 4:
+            depart = this.departamentos.get(3);
+            break;
 
-            case 5:
-                depart = this.departamentos.get(4);
-                break;
+        case 5:
+            depart = this.departamentos.get(4);
+            break;
 
-            default:
-                System.out.println("Opcão inválida!");
+        default:
+            System.out.println("Opcão inválida!");
         }
 
         Usuario novo = new Usuario(nome, admin, depart);
 
-        if(admin){
+        if (admin) {
             listaUsuariosAdmin.add(novo);
             return true;
         } else {
