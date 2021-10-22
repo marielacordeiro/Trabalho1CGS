@@ -429,4 +429,70 @@ public class Aplicacao {
                 return false;
         }
     }
+
+    private boolean adicionaUsuario()
+    {
+        System.out.println("Digite o nome do novo usuário:");
+        String ignorada = in.nextLine();
+        String nome = in.nextLine();
+
+        boolean admin = false;
+        System.out.println("O novo usuário é administrador?");
+        System.out.println("[1] - Sim      [2] - Não");
+        int op = in.nextInt();
+        switch(op) {
+            case 1:
+                admin = true;
+                break;
+            case 2:
+                admin = false;
+                break;
+            default:
+                System.out.println("Opcão inválida!");
+        }
+
+        Departamento depart = null;
+        System.out.println("Digite o departamento do novo usuário");
+        System.out.println("[1] - Financeiro");
+        System.out.println("[2] - RH");
+        System.out.println("[3] - Engenharia");
+        System.out.println("[4] - Administração");
+        System.out.println("[5] - Marketing");
+        op = in.nextInt();
+        switch(op) {
+            case 1:
+                depart = this.departamentos.get(0);
+                break;
+
+            case 2:
+                depart = this.departamentos.get(1);
+                break;
+
+            case 3:
+                depart = this.departamentos.get(2);
+                break;
+
+            case 4:
+                depart = this.departamentos.get(3);
+                break;
+
+            case 5:
+                depart = this.departamentos.get(4);
+                break;
+
+            default:
+                System.out.println("Opcão inválida!");
+        }
+
+        Usuario novo = new Usuario(nome, admin, depart);
+
+        if(admin){
+            listaUsuariosAdmin.add(novo);
+            return true;
+        } else {
+            listaUsuarios.add(novo);
+            return true;
+        }
+    }
+
 }
