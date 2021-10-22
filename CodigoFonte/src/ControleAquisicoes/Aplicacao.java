@@ -9,7 +9,7 @@ public class Aplicacao {
     private Scanner in;
     private List<Usuario> listaUsuarios;
     private List<Usuario> listaUsuariosAdmin;
-    private List<Usuario> departamentos;
+    private List<Departamento> departamentos;
     private Usuario usuarioAtual;
     private Historico historico;
 
@@ -18,16 +18,21 @@ public class Aplicacao {
         listaUsuarios = new ArrayList<>();
         listaUsuariosAdmin = new ArrayList<>();
         historico = new Historico();
-        departamentos = new ArrayList<>();
+        departamentos = new ArrayList<Departamento>();
     }
 
     public void inicializa() {
         // inicializa os funcionarios no departamento
         Departamento d1 = new Departamento("Financeiro", 1000000);
+        departamentos.add(d1);
         Departamento d2 = new Departamento("RH", 100000);
+        departamentos.add(d2);
         Departamento d3 = new Departamento("Engenharia", 500000);
+        departamentos.add(d3);
         Departamento d4 = new Departamento("Administracao", 2000000);
+        departamentos.add(d4);
         Departamento d5 = new Departamento("Marketing", 600000);
+        departamentos.add(d5);
         Usuario u1 = new Usuario("Paula", true, d1);
         listaUsuariosAdmin.add(u1);
         Usuario u2 = new Usuario("Alfredo", true, d2);
