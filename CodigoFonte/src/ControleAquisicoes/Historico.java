@@ -51,6 +51,16 @@ public class Historico {
         return pedidoBuscado;
     }
 
+    public boolean excluiPedido(int identificador) {
+        for (Pedido p : listaPedidos) {
+            if (p.getIdPedido() == identificador && p.getStatus().equals("ABERTO")) {
+                listaPedidos.remove(p);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String totalPedidos() {
         if (listaPedidos.size() == 0)
             return "Nenhum pedido registrado neste histórico.";

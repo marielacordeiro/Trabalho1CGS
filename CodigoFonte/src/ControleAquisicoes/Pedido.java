@@ -35,14 +35,11 @@ public class Pedido {
         return this.itens;
     }
 
-
-    public LocalDate getDataPedido()
-    {
+    public LocalDate getDataPedido() {
         return this.dataPedido;
     }
 
-    public LocalDate getDataConclusao()
-    {
+    public LocalDate getDataConclusao() {
         return this.dataConclusao;
     }
 
@@ -72,8 +69,7 @@ public class Pedido {
         }
     }
 
-    public void setDataConclusao(LocalDate dataConclusao)
-    {
+    public void setDataConclusao(LocalDate dataConclusao) {
         this.dataConclusao = dataConclusao;
     }
 
@@ -100,7 +96,7 @@ public class Pedido {
 
     @Override
     public String toString() {
-        return "Id do Pedido = " + idPedido + ", itens = " + itens + ", Funcionario Solicitante = " + funcSolicitante
+        return "Id do Pedido = " + idPedido + ", itens = " + itens + " Funcionario Solicitante = " + funcSolicitante
                 + ", Departamento Solicitante = " + departSolicitante + ", Data do Pedido = '" + dataPedido + '\''
                 + ", Data de Conclusao = '" + dataConclusao + '\'' + ", Valor Total = '" + this.getValorTotal() + '\''
                 + ", Status = '" + status + '\'';
