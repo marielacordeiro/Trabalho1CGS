@@ -134,6 +134,8 @@ public class Aplicacao {
                 case 11:
                     System.out.println(historico.detalhePedidoMaiorAquisicao());
                     break;
+                case 12:
+                    break;
                 default:
                     System.out.println("Opção Inválida");
                     break;
@@ -259,6 +261,7 @@ public class Aplicacao {
         System.out.println("[9] - Número de pedidos nos últimos 30 dias e seu valor médio");
         System.out.println("[10] - Valor total de cada categoria nos últimos 30 dias");
         System.out.println("[11] - Detalhes do pedido de aquisição de maior valor ainda aberto");
+        System.out.println("[12] - Aprovar ou reprovar algum pedido em aberto");
     }
 
     private boolean escolheAdm(List<Usuario> listaUsuarioAdmin) {
