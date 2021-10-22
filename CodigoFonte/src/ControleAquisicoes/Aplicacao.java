@@ -130,7 +130,10 @@ public class Aplicacao {
                 System.out.println(historico.totalPedidos());
                 break;
             case 9:
-                historico.pedidosUltimos30Dias().forEach(System.out::println);
+                var pedidos = historico.pedidosUltimos30Dias();
+                var media = pedidos.stream().mapToDouble(p -> p.getValorTotal()).average();
+                System.out.println("Número total: " + pedidos.size());
+                System.out.println("Média de valor: " + (media.isEmpty() ? "0" : media.getAsDouble()));
                 break;
             case 10:
                 System.out.println(historico.valorTotalCategoria());
