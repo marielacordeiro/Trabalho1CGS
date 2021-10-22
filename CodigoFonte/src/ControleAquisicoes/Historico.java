@@ -37,9 +37,9 @@ public class Historico {
         return pedidosDescricaoItem;
     }
 
-    public String visualizarPedido(int identificador) {
+    public Pedido visualizarPedido(int identificador) {
         if (listaPedidos.size() == 0)
-            return "Nenhum pedido registrado neste histórico.";
+            return null;
 
         Pedido pedidoBuscado = null;
         for (Pedido p : listaPedidos) {
@@ -48,11 +48,7 @@ public class Historico {
             }
         }
 
-        if (pedidoBuscado == null) {
-            return "Nenhum pedido com esse id";
-        }
-
-        return pedidoBuscado.toString();
+        return pedidoBuscado;
     }
 
     public String totalPedidos() {

@@ -11,7 +11,7 @@ public class Pedido {
     private Departamento departSolicitante;
     private LocalDate dataPedido;
     private LocalDate dataConclusao;
-    private String status;
+    protected String status;
 
     public Pedido(Usuario funcSolicitante, LocalDate dataPedido) {
         this.idPedido = count;
