@@ -187,8 +187,6 @@ public class Aplicacao {
         System.out.println("Informe o funcionário solicitante: ");
         int idUsuario = in.nextInt();
         // ArrayList<Pedido> listaPedido = historico.BuscaPedidos(idUsuario);
-        // System.out.println("Informe o funcionário solicitante: ");
-        // int idUsuario = in.nextInt();
         // listaUsuarios.stream().filter(u -> u.getId() ==
         // idUsuario).forEach(System.out::println);
 
@@ -226,9 +224,8 @@ public class Aplicacao {
             return false;
         case 2:
             if (pedido.getFuncSolicitante().equals(usuarioAtual)) {
-                Pedido ped = historico.visualizarPedido(id);
-                if (ped.getStatus().equals("ABERTO")) {
-                    listaPedido.remove(ped);
+                if (historico.excluiPedido(id)) {
+                    System.out.println("Pedido excluído com sucesso.");
                     return true;
                 }
             } else {
