@@ -9,6 +9,7 @@ public class Aplicacao {
     private Scanner in;
     private List<Usuario> listaUsuarios;
     private List<Usuario> listaUsuariosAdmin;
+    private List<Usuario> departamentos;
     private Usuario usuarioAtual;
     private Historico historico;
 
@@ -17,6 +18,7 @@ public class Aplicacao {
         listaUsuarios = new ArrayList<>();
         listaUsuariosAdmin = new ArrayList<>();
         historico = new Historico();
+        departamentos = new ArrayList<>();
     }
 
     public void inicializa() {
@@ -363,7 +365,7 @@ public class Aplicacao {
     private boolean aprovaReprovaPedido()
     {
         ArrayList<Pedido> listaPedido = historico.getListaPedidos();
-        
+
         if(listaPedido.size() == 0)
         {
             System.out.println("Não há pedidos cadastrados");
