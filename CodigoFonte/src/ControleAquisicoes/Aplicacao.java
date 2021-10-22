@@ -135,6 +135,7 @@ public class Aplicacao {
                     System.out.println(historico.detalhePedidoMaiorAquisicao());
                     break;
                 case 12:
+                    aprovaReprovaPedido();
                     break;
                 default:
                     System.out.println("Opção Inválida");
@@ -357,5 +358,68 @@ public class Aplicacao {
             }
         }
         return numero;
+    }
+
+    private boolean aprovaReprovaPedido()
+    {
+        ArrayList<Pedido> listaPedido = historico.getListaPedidos();
+        
+        if(listaPedido.size() == 0)
+        {
+            System.out.println("Não há pedidos cadastrados");
+            return false;
+        }
+
+        System.out.println("Pedidos em aberto:");
+        for(Pedido p : listaPedido){
+            if(p.getStatus().equalsIgnoreCase("aberto")){
+                System.out.println(p);
+            }
+        }
+
+        System.out.println("Informe o id do pedido a ser aprovado ou reprovado");
+        int id = in.nextInt();
+        Pedido pedido = null;
+        for(Pedido p : listaPedido)
+        {
+            if(p.getIdPedido() == id)
+                pedido = p;
+        }
+        if(pedido == null)
+        {
+            System.out.println("Nenhum pedido encontrado com este Id");
+            return false;
+        }
+        System.out.format("Você deseja aprovar ou reprovar o pedido: %n%s%n" , pedido);
+        System.out.println("[1] - Aprovar      [2] - Reprovar");
+        int op = in.nextInt();
+        switch(op)
+        {
+            case 1:
+                if(pedido.getStatus().equalsIgnoreCase("aberto"))
+                {
+                   pedido.setStatus("APROVADO");
+                    return true;
+                }
+                else
+                {
+                    System.out.println("Erro, apenas pedidos abertos podem ser aprovados ou reprovados!");
+                    return false;
+                }
+            case 2:
+                if(pedido.getStatus().equalsIgnoreCase("aberto"))
+                {
+                    pedido.setStatus("REPROVADO");
+                    return true;
+                }
+                else
+                {
+                    System.out.println("Erro, apenas pedidos abertos podem ser aprovados ou reprovados!");
+                    return false;
+                }
+            default:
+                System.out.println("Opcão inválida!");
+                return false;
+        }
     }
 }
